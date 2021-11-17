@@ -1,0 +1,129 @@
+------------------------------NavBar CSS-----------------------------
+
+.darknavicon {
+  filter: opacity(0.5) drop-shadow(0 0 0 rgb(75, 75, 75));
+}
+
+.avatar {
+  margin-top: 14px;
+}
+
+.xxx {
+  width: 20px;
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white;
+}
+
+.navbar {
+  height: 55px;
+  background-color: white !important;
+}
+
+.navbar-li {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.xx::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(233, 233, 233);
+  color: rgb(153, 52, 52);
+  width: 1px;
+  height: 61px;
+  margin-left: 20px;
+  margin-top: -70px;
+}
+
+.follow {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.nav-work {
+  align-items: flex-start;
+}
+
+.arrow {
+  margin-top: -2px;
+}
+
+.search {
+  width: 280px;
+  height: 32.5px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 43px;
+  transition: ease-in-out 0.3s;
+  background-color: rgb(238, 243, 248);
+}
+
+#input-container {
+  position: relative;
+}
+
+#input-icon {
+  position: absolute;
+  bottom: 5px;
+  left: 23px;
+  width: 24px;
+  height: 24px;
+  font-weight: bolder;
+}
+
+@keyframes expand {
+  from {
+    width: 280px;
+  }
+  to {
+    width: 350px;
+  }
+}
+
+.search:focus {
+  outline: none;
+  width: 350px;
+}
+
+.home-margin {
+  margin-left: 150px;
+}
+
+.dropdownbtn {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.link-color {
+  color: rgb(121, 78, 15);
+}
+
+.try-prem {
+  word-wrap: break-word;
+}
+
+/* .nav-item:hover {
+    text-decoration: underline;   
+  } */
+.nav-item:hover .darknavicon {
+  filter: opacity(1);
+  cursor: pointer;
+}
+
+.file {
+  border-radius: 50%;
+  padding: 6px 12px;
+  cursor: pointer;
+}

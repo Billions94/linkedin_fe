@@ -1,5 +1,8 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
 .App {
   text-align: center;
+  background-color: rgb(243, 242, 239);
 }
 
 .App-logo {

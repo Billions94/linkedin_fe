@@ -1,0 +1,70 @@
+/*------------------------------ADD EXPERIENCE MODAL CSS-----------------------------*/
+.modal {
+  overflow: hidden;
+}
+
+.input-span {
+  width: 400px;
+}
+.location-text {
+  font-size: 12px;
+  color: #00000099;
+}
+
+.modalbtn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin-top: -40px;
+  margin-left: 665px;
+}
+
+.bi-css {
+  font-size: 13px;
+}
+
+.bi-css1 {
+  position: absolute;
+  margin-top: 2px;
+  margin-left: -22px;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.modal-save {
+  border-radius: 30px;
+  width: 70px;
+  height: 30px;
+}
+
+.span-md-btn {
+  margin-top: -3px;
+  display: block;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.span-md-btn1 {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.md-add-media {
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  width: 150px;
+}
+
+.md-add-media:hover {
+  background-color: rgb(176, 204, 236);
+}
+
+.dateMY {
+  width: 350px;
+}

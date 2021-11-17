@@ -1,0 +1,70 @@
+/*------------------------------Footer CSS------------------------------*/
+.footer-link {
+  color: #00000099;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 10px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+.footer-link:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-link-compact {
+  color: #00000099;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 10px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.footer-link-compact:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-copyright {
+  font-size: 12px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  color: #00000099;
+}
+
+.footer-settings {
+  color: #00000099;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.footer-settings:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-settings-small {
+  color: #00000099;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+#languages {
+  width: 100%;
+}

@@ -110,6 +110,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
                     {elem.user.job}</span>
                 </div>
               </div>
+
               <div>
                 <p className="text-left mb-0 mt-2">{elem.text}</p>
               </div>
@@ -154,7 +155,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
                     </button>{" "}
                   </b>
                 </Col>
-                {comment && <Comments user={user}/>}
+                {elem.user._id === elem._id ? null : <Comments comment={elem.comments} user={user}/>}
               </Row>
             </div>
           </div>

@@ -15,10 +15,12 @@ const DisplayExp = ({ user, token, me }) => {
 
   const fetchExp = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${user._id}/experiences`);
+      const response = await fetch(
+        `http://localhost:3001/users/${user.userName}/experiences`
+      );
       const exp = await response.json();
-      const newExp = exp.users.experiences
-
+      console.log("================> ", exp);
+      const newExp = exp.exp;
       setData(newExp);
     } catch (e) {
       console.log(e);
@@ -29,12 +31,14 @@ const DisplayExp = ({ user, token, me }) => {
     fetchExp();
   }, [user]);
 
-  console.log();
+  //fetchExp();
+
+  console.log("======>> ", data);
   return (
     <>
       {user._id === me && (
         <Modal
-          user={user._id}
+          user={user.userName}
           fetchExp={fetchExp}
           lgShow={lgShow}
           setLgShow={setLgShow}
@@ -74,7 +78,7 @@ const DisplayExp = ({ user, token, me }) => {
                   onClick={() => {
                     PutExExp(
                       exp._id,
-                      exp.user,
+                      exp.userName,
                       lgShow,
                       setLgShow,
                       expId,

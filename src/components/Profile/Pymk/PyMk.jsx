@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { fetchInfo } from "./index";
 import { Link } from "react-router-dom";
-import "./styles.css"
+import "./styles.css";
 
-
-const PyMk = ({ refresh, setRefresh}) => {
+const PyMk = ({ refresh, setRefresh }) => {
   const [data, setData] = useState([]);
   const myUrl = `http://localhost:3001/users`;
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchInfo(myUrl);
-      const newData = data.users
+      const newData = data.users;
       setData(newData);
       console.log(newData);
     };
@@ -21,7 +20,7 @@ const PyMk = ({ refresh, setRefresh}) => {
   console.log(`hey it's me`, data);
 
   const slicedData = data.slice(0, 6);
-  
+
   return (
     <>
       {!data ? (
@@ -41,7 +40,7 @@ const PyMk = ({ refresh, setRefresh}) => {
                   />
                   <div class="ml-2">
                     <h3 className="text-dark m-0 text-left pymkh6p">
-                    <strong>{person.name}</strong>{" "}
+                      <strong>{person.name}</strong>{" "}
                       <strong>{person.surname}</strong>
                     </h3>
                     <p className="text-muted mb-0 text-left  pymkh6p">

@@ -1,8 +1,8 @@
 import { fetchSinglUserExp } from "./index";
 
-const PutExExp = async (id, user, lgShow, setLgShow, expId, setExpId) => {
-  const url = `http://localhost:3001/${user}/experiences/${id}`;
-  console.log(id, user);
+const PutExExp = async (id, userName, lgShow, setLgShow, expId, setExpId) => {
+  const url = `http://localhost:3001/users/${userName}/experiences/${id}`;
+  console.log("URL for getting single user exp: ", url);
   try {
     let exp = await fetchSinglUserExp(url);
     console.log(exp);

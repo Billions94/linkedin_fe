@@ -10,22 +10,23 @@ import { useParams } from "react-router-dom";
 import ProfileDashboard from "./ProfileDashboard";
 import SecondPYMK from "../Pymk/SecondPYMK";
 import { me } from "./index"
-import Activity from "./Activity";
-import "./styles.css"
 
-const MyProfile = ({setCurrentUser}) => {
- 
+import Activity from "./Activity";
+import "./styles.css";
+
+const MyProfile = ({ setCurrentUser }) => {
   const params = useParams();
   // let pathname = props.location.pathname;
   // console.log(pathname);
   const [user, setUser] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const CSVhref = `http://localhost:3001/users/${user.userName}/experiences/CSV `;
 
   useEffect(() => {
     const fetchUser = async (id) => {
       const url = `http://localhost:3001/users/${me}`;
       const data = await fetchInfo(url);
-      console.log(`this are the users`,{ data });
+      console.log(`this are the users`, { data });
       setUser(data);
       setCurrentUser(data);
     };
@@ -72,8 +73,6 @@ const MyProfile = ({setCurrentUser}) => {
                 {/*Your Dashboard END*/}
 
                 {/*Activity Section*/}
-                  
-                
 
                 <Col md={12} className="p-0">
                   <div className="section-container mt-3">
@@ -105,13 +104,20 @@ const MyProfile = ({setCurrentUser}) => {
                 {/*Activity Section END*/}
 
                 {/*Exp Section*/}
+
                 <Col md={12} className="p-0 rounded-lg">
                   <div className="section-container mt-3">
                     <div className="d-flex d-inline-block justify-content-between">
                       <h4>Experience</h4>
                     </div>
                     <div className="position-relative">
-                      <DisplayExp user={user}  me={me} />
+
+                      <DisplayExp user={user} me={me} />
+                      <hr />
+                      <a className="btn btn-success" href={CSVhref}>
+                        Download as CSV
+                      </a>
+
                     </div>
                   </div>
                 </Col>
@@ -163,7 +169,7 @@ const MyProfile = ({setCurrentUser}) => {
                         <div>
                           <ul className="ul">
                             {/*Insert generated content here!!*/}
-                            <PyMk refresh={refresh} setRefresh={setRefresh}/>
+                            <PyMk refresh={refresh} setRefresh={setRefresh} />
                           </ul>
                         </div>
                       </div>

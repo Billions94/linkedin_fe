@@ -8,8 +8,10 @@ import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+
 import { deleteSingleUserExp } from "./index";
 import "./styles.css"
+
 
 
 
@@ -17,15 +19,15 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
   // const [lgShow, setLgShow] = useState(false);
   const [upload, setUpload] = useState(null);
   const [checked, setChecked] = useState(false);
- 
-  console.log("hellooo" + user);
+
+  console.log("hellooo " + user, expId);
 
   let url =  process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
   let method = "";
-
   {
     expId ? (method = `PUT`) : (method = `POST`);
   }
+  console.log("URL used in EXP Modal & method =========>>> ", url, method);
 
   const validationSchema = yup.object().shape({
     role: yup.string().required("Title is required"),
@@ -61,11 +63,11 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
               "Content-Type": "application/json",
             },
           });
-          console.log(response);
+          console.log("Response from EXP Modal: ", response);
           if (response.ok) {
-           let postResponse = await response.json();
-           console.log(`this is the post response`, postResponse);
-            await submitImage(postResponse.user, postResponse._id )
+            let postResponse = await response.json();
+            console.log(`this is the post response `, postResponse);
+            await submitImage(postResponse.user, postResponse._id);
             fetchExp();
             setLgShow(false);
             setFieldValue({
@@ -83,6 +85,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       },
       validationSchema: validationSchema,
     });
+
 
     const submitImage = async (userId, expId,) => {
       
@@ -108,17 +111,13 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
   
           console.log(`wow... that wasn't supposed to happen... Error`);
           alert(`Woops we lost your data in the void .. try refreshing`);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
-    useEffect(() => {
-      if(lgShow === false) {
-        setExpId('')
-      }
-    },[lgShow])
+
+  useEffect(() => {
+    if (lgShow === false) {
+      setExpId("");
+    }
+  }, [lgShow]);
 
   return (
     <>
@@ -135,13 +134,11 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
         size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
-        
-        
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Header closeButton >
-          <Modal.Title id="example-modal-sizes-title-lg" >
-            Add experience
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            add / update experience
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-0" style={{ width: "710px" }}>
@@ -271,12 +268,12 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
               <Form.Text className="text-muted text-right">0/2,000</Form.Text>
             </Form.Group>
             <Form.Control
-              onChange={(e)=> setUpload(e.target.files[0])}
+              onChange={(e) => setUpload(e.target.files[0])}
               placeholder="jinx"
               className="mb-3 md-add-media"
               type="file"
             />
-          </Form> 
+          </Form>
         </Modal.Body>
 
         <Modal.Footer>
@@ -287,7 +284,9 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
                 variant="primary"
                 onClick={() => handleSubmit()}
               >
-                <span className="span-md-btn " style={{marginLeft:"-6px"}}>Update</span>
+                <span className="span-md-btn " style={{ marginLeft: "-6px" }}>
+                  Update
+                </span>
               </Button>
               <Button
                 className="modal-save"

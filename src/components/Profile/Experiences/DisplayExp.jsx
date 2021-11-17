@@ -16,9 +16,10 @@ const DisplayExp = ({ user, token, me }) => {
   const fetchExp = async () => {
     try {
       const response = await fetch(url + `/users/${user._id}/experiences`);
-      const exp = await response.json();
-      const newExp = exp.users.experiences
 
+      const exp = await response.json();
+      console.log("================> ", exp);
+      const newExp = exp.exp;
       setData(newExp);
     } catch (e) {
       console.log(e);
@@ -29,12 +30,14 @@ const DisplayExp = ({ user, token, me }) => {
     fetchExp();
   }, [user]);
 
-  console.log();
+  //fetchExp();
+
+  console.log("======>> ", data);
   return (
     <>
       {user._id === me && (
         <Modal
-          user={user._id}
+          user={user.userName}
           fetchExp={fetchExp}
           lgShow={lgShow}
           setLgShow={setLgShow}
@@ -74,7 +77,7 @@ const DisplayExp = ({ user, token, me }) => {
                   onClick={() => {
                     PutExExp(
                       exp._id,
-                      exp.user,
+                      exp.userName,
                       lgShow,
                       setLgShow,
                       expId,

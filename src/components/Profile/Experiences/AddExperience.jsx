@@ -10,7 +10,11 @@ import { DesktopDatePicker } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
 import { deleteSingleUserExp } from "./index";
+
 import "./styles.css";
+
+
+
 
 const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
   // const [lgShow, setLgShow] = useState(false);
@@ -19,7 +23,11 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
 
   console.log("hellooo " + user, expId);
 
+
   let url = process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
+
+ 
+
   let method = "";
   {
     expId ? (method = `PUT`) : (method = `POST`);
@@ -83,6 +91,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       validationSchema: validationSchema,
     });
 
+
   const submitImage = async (userId, expId) => {
     try {
       let formData = new FormData();
@@ -109,6 +118,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       console.error(error);
     }
   };
+
 
   useEffect(() => {
     if (lgShow === false) {

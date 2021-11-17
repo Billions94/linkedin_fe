@@ -2,7 +2,9 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
+import { url } from "../../index"
 import "../../styles.css"
+
 
 
 const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id, token}) => {
@@ -13,8 +15,7 @@ const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id, token}) => {
   const updatePost = async (e) => {
     e.preventDefault(e);
     try {
-      const response = await fetch(
-        `http://localhost:3001/posts/${id}`,
+      const response = await fetch(url + `/posts/${id}`,
         {
           method: "PUT",
           body: JSON.stringify(text),

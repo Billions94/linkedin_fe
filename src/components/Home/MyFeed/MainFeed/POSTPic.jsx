@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
 import "../../styles.css"
+import { url } from "../../index"
 
 const POSTPic = ({ fetchFeed, pic, setPic, id, token }) => {
   const [image, setImage] = useState(null);
@@ -20,8 +21,7 @@ console.log(`this is the id`,id)
       let formData = new FormData();
       formData.append("image", image);
 
-      const response = await fetch(
-        `http://localhost:3001/posts/${id}/upload`,
+      const response = await fetch(url + `/posts/${id}/upload`,
 
         {
           method: "POST",

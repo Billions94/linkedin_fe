@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
+import { url, currentUser } from "../../index"
 import "../../styles.css"
 
 const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
@@ -13,8 +14,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
   const newPost = async (e) => {
     e.preventDefault(e);
     try {
-      const response = await fetch(
-        `http://localhost:3001/posts/billions94/`,
+      const response = await fetch(url + `/posts/` + currentUser,
         {
           method: "POST",
           body: JSON.stringify(text),
@@ -31,8 +31,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
           let formData = new FormData();
           formData.append("image", image);
         
-          const response = await fetch(
-            `http://localhost:3001/posts/${post._id}/upload`,
+          const response = await fetch(url + `/posts/${post._id}/upload`,
         
             {
               method: "POST",
@@ -42,7 +41,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
               },
             }
           );
-          console.log('>>>>>>>>>>>>>>>>>>>post id', post._id)
+         
           if (response.ok) {
             console.log(response);
         
@@ -70,30 +69,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
     console.log(text);
   }, [text]);
 
-//   const postPhoto = async(id) => {
-//   let formData = new FormData();
-//   formData.append("post", photo);
 
-//   const response = await fetch(
-//     `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-
-//     {
-//       method: "POST",
-//       body: formData,
-//       headers: {
-//         Authorization: token,
-//       },
-//     }
-//   );
-//   if (response.ok) {
-//     console.log(response);
-
-//     fetchFeed();
-//     setPhoto(false);
-//   } else {
-//     console.log('we got an error');
-//   }
-// }
   
   return (
     <>

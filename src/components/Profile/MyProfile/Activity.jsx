@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {token, me} from './index'
+import { me } from './index'
 import "./styles.css"
 
 const Activity = () => {
@@ -8,11 +8,7 @@ const Activity = () => {
 
     const fetchPost = async() => {
         try{
-            const response = await fetch(`http://loaclhost:3001/posts/ `,{
-                headers: {
-                  Authorization:token,
-                },
-              });
+            const response = await fetch(`http://loaclhost:3001/posts/`);
             if(response.ok){
                let ourPost = await response.json();
                 console.log(`this is our post`, ourPost)

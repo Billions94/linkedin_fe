@@ -10,10 +10,13 @@ const PyMk = ({ refresh, setRefresh}) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      try {
       const data = await fetchInfo(myUrl);
-      const newData = data.users
+      const newData = await data.users
       setData(newData);
-      console.log(newData);
+      } catch (error) {
+        console.log(error)
+      }
     };
     fetchData();
   }, []);

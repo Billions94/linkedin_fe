@@ -13,10 +13,13 @@ const SecondPYMK = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      try {
       const data = await fetchInfo(myUrl);
       const newData = data.users
       setData(newData);
-      console.log(newData);
+      } catch (error) {
+        console.log(error)
+      }
     };
     fetchData();
   }, []);

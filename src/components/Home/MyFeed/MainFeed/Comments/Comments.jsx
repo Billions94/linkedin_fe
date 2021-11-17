@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 import { url } from "../../../index";
 import { postTimer } from "../../../../../Lib";
 
-const Comments = ({ reversedFeed }) => {
-  console.log(
-    "i am the reverse feed in the comments section",
-    reversedFeed.user
-  );
+
+const Comments = ({ user }) => {
+
+
 
   const [comments, setComments] = useState({
     text: "",
@@ -50,7 +49,7 @@ const Comments = ({ reversedFeed }) => {
         </div>
       )}
       <div className="commentArea d-flex mb-2">
-        <img src="" alt="" width="35px" className="roundpic" />
+        <img src={user.image} alt="" width="35px" className="roundpic" />
         <textarea
           className="form-control shareComment"
           type="textarea"

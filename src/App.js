@@ -20,7 +20,7 @@ function App() {
     <div className="App">
     <Router>
       <NavBar currentUser={currentUser} />
-      <Route path="/home" exact component={Home} />
+      <Route path="/home"  exact render={(props) => <Home {...props} currentUser={currentUser} />} />
       <Route path="/profile/:id" exact render={(props) => <MyProfile {...props} setCurrentUser={setCurrentUser} />} />
       <MyFooter />
     </Router>

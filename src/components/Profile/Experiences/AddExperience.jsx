@@ -92,6 +92,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
     });
 
 
+
   const submitImage = async (userId, expId) => {
     try {
       let formData = new FormData();
@@ -118,6 +119,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       console.error(error);
     }
   };
+
 
 
   useEffect(() => {
@@ -321,5 +323,6 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
     </>
   );
 };
+    
+export default ModalPop
 
-export default ModalPop;

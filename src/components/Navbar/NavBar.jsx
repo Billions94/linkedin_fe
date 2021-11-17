@@ -157,7 +157,7 @@ class NavBar extends Component {
                 <div className="xx   ">
                   <div className="d-flex pt-2 darknavicon nav-work">
                     <div id="link">
-                      <Dropdown className="customDropdown">
+                      <Dropdown className="">
                         <Dropdown.Toggle
                           className="customDropdown"
                           variant="success"

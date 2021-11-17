@@ -3,7 +3,7 @@ import PutExExp from "./PutExExp";
 import { Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Modal from "./AddExperience";
-import { postTimer } from "../../../Lib/index.js";
+import { postTimer, url } from "../../../Lib/index.js";
 
 const DisplayExp = ({ user, token, me }) => {
   console.log(user);
@@ -15,9 +15,8 @@ const DisplayExp = ({ user, token, me }) => {
 
   const fetchExp = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/users/${user.userName}/experiences`
-      );
+      const response = await fetch(url + `/users/${user._id}/experiences`);
+
       const exp = await response.json();
       console.log("================> ", exp);
       const newExp = exp.exp;

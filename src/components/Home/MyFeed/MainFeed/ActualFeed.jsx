@@ -2,6 +2,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Accordion, Card, Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import POSTPic from "./POSTPic";
 import { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ import {Link} from "react-router-dom"
 import { postTimer } from "../../index";
 import { deletePost, me } from "../../index";
 import "../../styles.css"
+import Comments from "./Comments/Comments";
 
 const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
   const [smShow, setSmShow] = useState(false);
@@ -95,7 +97,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                   />{" "}
                 </div>
                 </Link>
-                
+
                 <div>
                   <Link to={"/profile/" + elem.user._id} 
                   className="text-left text-dark  text-decoration-none">
@@ -104,7 +106,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
 
                   <span className="text-left text-muted d-block"
                   style={{fontSize: "12px", fontWeight: "500"}} >
-                    {elem.user.title}</span>
+                    {elem.user.job}</span>
                 </div>
               </div>
               <div>
@@ -122,14 +124,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                     </button>{" "}
                   </b>
                 </Col>
-                <Col className="px-0 actuall-feed-interact">
-                  <b>
-                    <button className="btn btn-primary actuall-feed-h5">
-                      <i className="bi text-muted bi-chat-right-text"></i>&nbsp;{" "}
-                      <span className="text-muted">Comment</span>
-                    </button>{" "}
-                  </b>
-                </Col>
+
                 <Col className="px-0 actuall-feed-interact">
                   <b>
                     <button className="btn btn-primary actuall-feed-h5">
@@ -149,6 +144,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                     </button>{" "}
                   </b>
                 </Col>
+                <Comments reversedFeed={reversedFeed} />
               </Row>
             </div>
           </div>

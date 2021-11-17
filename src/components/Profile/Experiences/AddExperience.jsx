@@ -8,8 +8,12 @@ import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { deleteSingleUserExp, token } from "./index";
-import "./styles.css";
+
+import { deleteSingleUserExp } from "./index";
+import "./styles.css"
+
+
+
 
 const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
   // const [lgShow, setLgShow] = useState(false);
@@ -18,7 +22,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
 
   console.log("hellooo " + user, expId);
 
-  let url = `http://localhost:3001/users/${user}/experiences/${expId}`;
+  let url =  process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
   let method = "";
   {
     expId ? (method = `PUT`) : (method = `POST`);
@@ -57,7 +61,6 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
             body: JSON.stringify(values),
             headers: {
               "Content-Type": "application/json",
-              Authorization: token,
             },
           });
           console.log("Response from EXP Modal: ", response);
@@ -83,36 +86,32 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       validationSchema: validationSchema,
     });
 
-  const submitImage = async (user, expId) => {
-    try {
-      let formData = new FormData();
-      formData.append("experience", upload);
 
-      const response = await fetch(
-        `http://localhost:3001/${user}/experiences/${expId}/upload`,
+    const submitImage = async (userId, expId,) => {
+      
+      try {
+        let formData = new FormData();
+        formData.append("experience", upload );
+  
+        const response = await fetch(process.env.REACT_APP_URL + `/${userId}/experiences/${expId}/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+        if (response.ok) {
+          console.log(response);
+          
+  
+  
+        
+          setUpload(false);
+        } else {
+          console.log();
+  
+          console.log(`wow... that wasn't supposed to happen... Error`);
+          alert(`Woops we lost your data in the void .. try refreshing`);
 
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
-      if (response.ok) {
-        console.log(response);
-
-        setUpload(false);
-      } else {
-        console.log();
-
-        console.log(`wow... that wasn't supposed to happen... Error`);
-        //alert(`Woops we lost your data in the void .. try refreshing`);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     if (lgShow === false) {

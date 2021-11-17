@@ -1,16 +1,14 @@
-const { REACT_APP_TOKEN, REACT_APP_ME } = process.env;
+const {  REACT_APP_ME, REACT_APP_URL, REACT_APP_USER } = process.env;
 
-export const token = REACT_APP_TOKEN;
 export const me = REACT_APP_ME;
+export const url = REACT_APP_URL;
+export const currentUser = REACT_APP_USER;
+
 
 // FETCH USER PROFILES
 export const fetchInfo = async (url) => {
   try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await fetch(url);
     if (response.ok) {
       const data = response.json();
       console.log(`Here is your data`, data);
@@ -24,17 +22,10 @@ export const fetchInfo = async (url) => {
 };
 
 // DELETE POST
-
 export const deletePost = async (id, fetchFeed) => {
-  const url = `http://localhost:3001/posts/${id}`;
-
-  console.log(token);
   try {
-    const response = await fetch(url, {
+    const response = await fetch(url +`/posts/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization: token,
-      },
     });
     if (response.ok) {
       fetchFeed();
@@ -47,6 +38,7 @@ export const deletePost = async (id, fetchFeed) => {
     console.error(error);
   }
 };
+
 
 // Post time
 export const postTimer = (x) => {

@@ -10,7 +10,8 @@ import { DesktopDatePicker } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
 import { deleteSingleUserExp } from "./index";
-import "./styles.css"
+
+import "./styles.css";
 
 
 
@@ -22,7 +23,11 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
 
   console.log("hellooo " + user, expId);
 
-  let url =  process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
+
+  let url = process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
+
+ 
+
   let method = "";
   {
     expId ? (method = `PUT`) : (method = `POST`);
@@ -87,32 +92,34 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
     });
 
 
-    const submitImage = async (userId, expId,) => {
-      
-      try {
-        let formData = new FormData();
-        formData.append("experience", upload );
-  
-        const response = await fetch(process.env.REACT_APP_URL + `/${userId}/experiences/${expId}/upload`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        if (response.ok) {
-          console.log(response);
-          setUpload(false);
-        } else {
-          console.log();
-  
-          console.log(`wow... that wasn't supposed to happen... Error`);
-          alert(`Woops we lost your data in the void .. try refreshing`);
-        }
 
-      } catch (error) {
-        console.error(error);
+  const submitImage = async (userId, expId) => {
+    try {
+      let formData = new FormData();
+      formData.append("experience", upload);
+
+      const response = await fetch(
+        process.env.REACT_APP_URL + `/${userId}/experiences/${expId}/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (response.ok) {
+        console.log(response);
+
+        setUpload(false);
+      } else {
+        console.log();
+
+        console.log(`wow... that wasn't supposed to happen... Error`);
+        // alert(`Woops we lost your data in the void .. try refreshing`);
       }
+    } catch (error) {
+      console.error(error);
     }
+  };
+
 
 
   useEffect(() => {

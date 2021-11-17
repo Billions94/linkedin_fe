@@ -1,50 +1,53 @@
 import "./styles.css";
 import { Dropdown, Accordion, Image, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { url } from "../../../index"
+import { url } from "../../../index";
 import { postTimer } from "../../../../../Lib";
+
 
 const Comments = ({ user }) => {
 
-  console.log('i am the reverse feed in the comments section', user)
+
 
   const [comments, setComments] = useState({
     text: "",
   });
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
 
   const fetchComments = async () => {
     try {
-      const response = await fetch(url + `/posts/6193e2d8527d64e241a3d328/comments`)
-      if (response.ok){
-        const data = await response.json()
-        console.log('comments data', data.comments)
-        const commentData = data.comments
-        setData(commentData)
+      const response = await fetch(
+        url + `/posts/6193e2d8527d64e241a3d328/comments`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log("comments data", data.comments);
+        const commentData = data.comments;
+        setData(commentData);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  console.log('data array ', data)
+  console.log("data array ", data);
 
- useEffect(() => {
-  fetchComments()
- }, [])
+  useEffect(() => {
+    fetchComments();
+  }, []);
 
   return (
     <>
-    <div>
-    {/* {
-        data.map(c => (
-          <>
-          <h1>{c.text}</h1>
-          </>
-        ))
-      } */}
-    </div>
+      {data && (
+        <div>
+          {data.map((c) => (
+            <>
+              <h1>{c.text}</h1>
+            </>
+          ))}
+        </div>
+      )}
       <div className="commentArea d-flex mb-2">
         <img src={user.image} alt="" width="35px" className="roundpic" />
         <textarea

@@ -21,6 +21,8 @@ const DisplayExp = ({ user, token, me }) => {
       console.log("================> ", exp);
       const newExp = exp.exp;
       setData(newExp);
+      // console.log("================", newExp);
+      // console.log(data);
     } catch (e) {
       console.log(e);
     }

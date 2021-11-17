@@ -2,7 +2,9 @@ import { fetchSinglUserExp } from "./index";
 
 
 const PutExExp = async (id, userName, lgShow, setLgShow, expId, setExpId) => {
-  const url = process.env.REACT_APP_URL +`/${userName}/experiences/${id}`;
+  const url =
+    process.env.REACT_APP_URL + `/users/${userName}/experiences/${id}`;
+
   console.log(id, userName);
 
   try {

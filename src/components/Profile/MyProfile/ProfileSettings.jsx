@@ -3,7 +3,7 @@ import { SetState, useEffect, useState } from "react";
 import { fetchInfo } from "./index";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { token, me } from "./index";
+import { me } from "./index";
 import "./styles.css";
 
 const ProfileSettings = ({ user, setRefresh, refresh }) => {
@@ -32,9 +32,6 @@ const ProfileSettings = ({ user, setRefresh, refresh }) => {
         {
           method: "PUT",
           body: formData,
-          headers: {
-            Authorization: token,
-          },
         }
       );
       if (response.ok) {
@@ -62,7 +59,6 @@ const ProfileSettings = ({ user, setRefresh, refresh }) => {
         body: JSON.stringify(settings),
         headers: {
           "Content-Type": "application/json",
-          Authorization: token,
         },
       });
       if (response.ok) {

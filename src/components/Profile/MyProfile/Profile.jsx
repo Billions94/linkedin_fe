@@ -9,7 +9,7 @@ import EditSettingsRightBar from "./SettingsRightBar";
 import { useParams } from "react-router-dom";
 import ProfileDashboard from "./ProfileDashboard";
 import SecondPYMK from "../Pymk/SecondPYMK";
-import {token , me} from "./index"
+import { me } from "./index"
 import Activity from "./Activity";
 import "./styles.css"
 
@@ -111,7 +111,7 @@ const MyProfile = ({setCurrentUser}) => {
                       <h4>Experience</h4>
                     </div>
                     <div className="position-relative">
-                      <DisplayExp user={user} token={token} me={me} />
+                      <DisplayExp user={user}  me={me} />
                     </div>
                   </div>
                 </Col>

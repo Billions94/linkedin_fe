@@ -1,7 +1,7 @@
 import { fetchSinglUserExp } from "./index";
 
 const PutExExp = async (id, user, lgShow, setLgShow, expId, setExpId) => {
-  const url = `http://localhost:3001/${user}/experiences/${id}`;
+  const url = process.env.REACT_APP_URL +`/${user}/experiences/${id}`;
   console.log(id, user);
   try {
     let exp = await fetchSinglUserExp(url);

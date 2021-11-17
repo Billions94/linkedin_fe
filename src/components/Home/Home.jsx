@@ -4,7 +4,7 @@ import SideBarSm from "./MyFeed/SideBarSm/SideBarSm";
 import SideBarRight from "./MyFeed/RightSideBar/SideBarRight";
 import MainFeedSection from "../Home/MyFeed/MainFeed/MainFeedSection";
 import { useState, useEffect } from "react";
-import { fetchInfo, me } from "./index";
+import { fetchInfo, me, url } from "./index";
 import "./styles.css"
 // import { useParams } from "react-router-dom";
 
@@ -16,8 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUser = async (id) => {
-      const url = `http://localhost:3001/users/${me}`;
-      const data = await fetchInfo(url);
+      const data = await fetchInfo(url + `/users/${me}`);
       console.log({ data });
       setUser(data);
     };

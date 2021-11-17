@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { deleteSingleUserExp, token } from "./index";
+import { deleteSingleUserExp } from "./index";
 import "./styles.css"
 
 
@@ -20,7 +20,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
  
   console.log("hellooo" + user);
 
-  let url = `http://localhost:3001/users/${user}/experiences/${expId}`;
+  let url =  process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
   let method = "";
 
   {
@@ -59,7 +59,6 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
             body: JSON.stringify(values),
             headers: {
               "Content-Type": "application/json",
-              Authorization: token,
             },
           });
           console.log(response);
@@ -91,15 +90,10 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
         let formData = new FormData();
         formData.append("experience", upload );
   
-        const response = await fetch(
-          `http://localhost:3001/${userId}/experiences/${expId}/upload`,
-  
+        const response = await fetch(process.env.REACT_APP_URL + `/${userId}/experiences/${expId}/upload`,
           {
             method: "POST",
             body: formData,
-            headers: {
-              Authorization: token,
-            },
           }
         );
         if (response.ok) {

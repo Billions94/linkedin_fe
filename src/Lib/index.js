@@ -1,7 +1,8 @@
-const { REACT_APP_TOKEN, REACT_APP_ME } = process.env;
+const { REACT_APP_TOKEN, REACT_APP_ME, REACT_APP_URL } = process.env;
 
 export const token = REACT_APP_TOKEN;
 export const me = REACT_APP_ME;
+export const url = REACT_APP_URL;
 
 export const postTimer = (x) => {
   const postedDateISO = x;
@@ -19,7 +20,7 @@ export const postTimer = (x) => {
     date = `${weeks}w`;
   } else if (days > 0) {
     date = `${days}d`;
-  } else if (days == 0 && hours >= 1) {
+  } else if (days === 0 && hours >= 1) {
     date = `${hours}hr`;
   } else if (hours < 1) {
     date = `${minutes}min`;

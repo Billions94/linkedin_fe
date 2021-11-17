@@ -1,16 +1,13 @@
-const { REACT_APP_TOKEN, REACT_APP_ME } = process.env;
+const { REACT_APP_ME } = process.env;
 
-export const token = REACT_APP_TOKEN;
+
 export const me = REACT_APP_ME;
+
 
 // FETCH USER EXPERIENCES
 export const fetchUserExp = async (url) => {
   try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await fetch(url);
     if (response.ok) {
       const data = response.json();
       console.log(`Here is your data`, data);
@@ -29,9 +26,6 @@ export const postUserExp = async (url, e, exp) => {
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(exp),
-      headers: {
-        Authorization: token,
-      },
     });
     if (response.ok) {
       fetchUserExp(url);
@@ -47,11 +41,7 @@ export const postUserExp = async (url, e, exp) => {
 // FETCH SINGLE EXPERIENCE
 export const fetchSinglUserExp = async (url) => {
   try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const response = await fetch(url);
     if (response.ok) {
       const data = response.json();
       console.log(`Here is your data`, data);
@@ -71,9 +61,6 @@ export const putSinglUserExp = async (url, exp) => {
     const response = await fetch(url, {
       method: "PUT",
       body: JSON.stringify(exp),
-      headers: {
-        Authorization: token,
-      },
     });
     console.log(`experience response ------------`, response);
     if (response.ok) {
@@ -94,9 +81,6 @@ export const deleteSingleUserExp = async (user, expId, fetchExp, setLgShow) => {
     try {
       const response = await fetch(url, {
         method: "DELETE",
-        headers: {
-          Authorization:token,
-        },
       });
       if (response.ok) {
         fetchUserExp(url);

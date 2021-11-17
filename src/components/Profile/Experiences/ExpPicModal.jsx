@@ -2,7 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import { token } from "./index";
+import { url } from "../../../Lib/index";
 
 const POSTPic = ({ expId, userId, picExp, setPicExp }) => {
   const [imageExp, setImageExp] = useState(null);
@@ -20,15 +20,10 @@ const POSTPic = ({ expId, userId, picExp, setPicExp }) => {
       let formData = new FormData();
       formData.append("experience", imageExp);
 
-      const response = await fetch(
-        `http://localhost:3001/${userId}/experiences/${expId}/upload`,
-
+      const response = await fetch(url + `/${userId}/experiences/${expId}/upload`,
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization: token,
-          },
         }
       );
       if (response.ok) {

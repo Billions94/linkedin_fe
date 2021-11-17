@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "./components/Navbar/NavBar";
-import MyProfile from "./components/Profiles/MyProfile/Profile";
+import MyProfile from "./components/Profile/MyProfile/Profile";
 import MyFooter from "./components/Footer/MyFooter";
 import Home from "./components/Home/Home";
 import {useState, useEffect} from "react"

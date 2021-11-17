@@ -1,12 +1,4 @@
-import {
-  Jumbotron,
-  Container,
-  Row,
-  Col,
-  Accordion,
-  Card,
-  Button,
-} from "react-bootstrap";
+import { Jumbotron, Container, Row, Accordion, Card } from "react-bootstrap";
 
 const SecondSideBar = () => {
   return (
@@ -30,34 +22,50 @@ const SecondSideBar = () => {
                   </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
                     <div>
-                    <div className="d-flex mt-1">
+                      <div className="d-flex mt-1">
                         <div>
-                      <img className="d-block ml-3  mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3  mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           JavaScript
                         </h3>
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           Full-stack web developer
                         </h3>
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           Frontend developer and web...
                         </h3>
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           React Developers ReactJS...
                         </h3>
@@ -93,24 +101,36 @@ const SecondSideBar = () => {
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           Full-stack web developer
                         </h3>
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           Frontend developer and web...
                         </h3>
                       </div>
                       <div className="d-flex">
                         <div>
-                      <img className="d-block ml-3 mr-2" src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png" width="15px"/>
-                      </div>
+                          <img
+                            className="d-block ml-3 mr-2"
+                            src="https://img.icons8.com/fluency-systems-filled/30/000000/queue.png"
+                            width="15px"
+                          />
+                        </div>
                         <h3 className="text-muted SideBarSm-h3 wvmpDiv">
                           React Developers ReactJS...
                         </h3>
@@ -150,7 +170,7 @@ const SecondSideBar = () => {
                     className="container-fluid show-more-button1"
                     as={Card.Header}
                     eventKey="0"
-                    style={{ width: "100%", backgroundColor: "transparent", }}
+                    style={{ width: "100%", backgroundColor: "transparent" }}
                   >
                     <div className="d-flex div-in-acc">
                       <a href="https://www.linkedin.com/feed/following/?filterType=channel&focused=true">

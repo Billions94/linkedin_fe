@@ -187,7 +187,6 @@
   border-bottom-right-radius: 10px;
   border-top-right-radius: 0px;
   border-top-left-radius: 10px;
-  margin-top: 10px;
 }
 
 .customDropdownMenuItem {
@@ -266,5 +265,5 @@
 .dropdown-menu {
   width: 250px !important;
   margin-left: -186px !important;
-  margin-top: -22px !important;
+  margin-top: 0px !important;
 }

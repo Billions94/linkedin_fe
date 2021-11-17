@@ -101,16 +101,18 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
         );
         if (response.ok) {
           console.log(response);
-          
-  
-  
-        
           setUpload(false);
         } else {
           console.log();
   
           console.log(`wow... that wasn't supposed to happen... Error`);
           alert(`Woops we lost your data in the void .. try refreshing`);
+        }
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
 
   useEffect(() => {
@@ -314,5 +316,6 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
     </>
   );
 };
+    
+export default ModalPop
 
-export default ModalPop;

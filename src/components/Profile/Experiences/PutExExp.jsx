@@ -1,9 +1,9 @@
 import { fetchSinglUserExp } from "./index";
 
 
-const PutExExp = async (id, user, lgShow, setLgShow, expId, setExpId) => {
-  const url = process.env.REACT_APP_URL +`/${user}/experiences/${id}`;
-  console.log(id, user);
+const PutExExp = async (id, userName, lgShow, setLgShow, expId, setExpId) => {
+  const url = process.env.REACT_APP_URL +`/${userName}/experiences/${id}`;
+  console.log(id, userName);
 
   try {
     let exp = await fetchSinglUserExp(url);

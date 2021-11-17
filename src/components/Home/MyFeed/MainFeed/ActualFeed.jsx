@@ -13,9 +13,10 @@ import { deletePost, me } from "../../index";
 import "../../styles.css"
 import Comments from "./Comments/Comments";
 
-const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
+const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
   const [smShow, setSmShow] = useState(false);
   const [pic, setPic] = useState(false);
+  const [comment, setComment] = useState(false)
 
   return (
     <>
@@ -124,7 +125,16 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                     </button>{" "}
                   </b>
                 </Col>
-
+                <Col className="px-0 actuall-feed-interact">
+                  <b>
+                    <button className="btn btn-primary actuall-feed-h5">
+                      <i className="bi text-muted bi-chat-right-text"></i>&nbsp;{" "}
+                      <span className="text-muted"
+                      onClick={(e) => setComment(true)}
+                      >Comment</span>
+                    </button>{" "}
+                  </b>
+                </Col>
                 <Col className="px-0 actuall-feed-interact">
                   <b>
                     <button className="btn btn-primary actuall-feed-h5">
@@ -144,7 +154,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                     </button>{" "}
                   </b>
                 </Col>
-                <Comments reversedFeed={reversedFeed} />
+                {comment && <Comments user={user}/>}
               </Row>
             </div>
           </div>

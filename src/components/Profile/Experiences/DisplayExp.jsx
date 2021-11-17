@@ -15,12 +15,14 @@ const DisplayExp = ({ user, token, me }) => {
 
   const fetchExp = async () => {
     try {
-      const response = await fetch(url + `/users/${user._id}/experiences`);
+      const response = await fetch(url + `/users/${user.userName}/experiences`);
 
       const exp = await response.json();
       console.log("================> ", exp);
       const newExp = exp.exp;
       setData(newExp);
+      // console.log("================", newExp);
+      // console.log(data);
     } catch (e) {
       console.log(e);
     }

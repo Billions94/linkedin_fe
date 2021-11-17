@@ -51,8 +51,8 @@ const DisplayExp = ({ user, token, me }) => {
         <>
           {user._id === me && (
             <ExpPicModal
-              expId={exp._id}
-              userId={user._id}
+              expId={expId}
+              userName={exp.userName}
               picExp={picExp}
               setPicExp={setPicExp}
               fetchExp={fetchExp}
@@ -80,10 +80,10 @@ const DisplayExp = ({ user, token, me }) => {
                     PutExExp(
                       exp._id,
                       exp.userName,
-                      lgShow,
-                      setLgShow,
                       expId,
-                      setExpId
+                      setExpId,
+                      lgShow,
+                      setLgShow
                     );
                   }}
                   className="profile-button pencil-button"
@@ -93,14 +93,14 @@ const DisplayExp = ({ user, token, me }) => {
                 <button
                   onClick={() => {
                     setPicExp(true);
-                    // ExpPicModal(
-                    //   exp._id,
-                    //   exp.user,
-                    //   picExp,
-                    //   setPicExp
-                    // expId,
-                    // setExpId
-                    // );
+                    PutExExp(
+                      exp._id,
+                      exp.userName,
+                      expId,
+                      setExpId,
+                      null, // lgShow,
+                      null // setLgShow
+                    );
                   }}
                   className="profile-button pencil-button"
                 >

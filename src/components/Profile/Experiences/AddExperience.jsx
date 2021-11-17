@@ -13,9 +13,6 @@ import { deleteSingleUserExp } from "./index";
 
 import "./styles.css";
 
-
-
-
 const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
   // const [lgShow, setLgShow] = useState(false);
   const [upload, setUpload] = useState(null);
@@ -23,10 +20,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
 
   console.log("hellooo " + user, expId);
 
-
   let url = process.env.REACT_APP_URL + `/users/${user}/experiences/${expId}`;
-
- 
 
   let method = "";
   {
@@ -72,7 +66,10 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
           if (response.ok) {
             let postResponse = await response.json();
             console.log(`this is the post response `, postResponse);
-            await submitImage(postResponse.user, postResponse._id);
+            await submitImage(
+              postResponse.userName,
+              postResponse.experiences.at(-1)
+            );
             fetchExp();
             setLgShow(false);
             setFieldValue({
@@ -91,17 +88,16 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       validationSchema: validationSchema,
     });
 
-
-
-  const submitImage = async (userId, expId) => {
+  const submitImage = async (user, expId) => {
     try {
       let formData = new FormData();
-      formData.append("experience", upload);
+      formData.append("image", upload);
 
       const response = await fetch(
-        process.env.REACT_APP_URL + `/${userId}/experiences/${expId}/upload`,
+        process.env.REACT_APP_URL +
+          `/users/${user}/experiences/${expId}/upload`,
         {
-          method: "POST",
+          method: "PUT",
           body: formData,
         }
       );
@@ -119,8 +115,6 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       console.error(error);
     }
   };
-
-
 
   useEffect(() => {
     if (lgShow === false) {
@@ -323,6 +317,5 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
     </>
   );
 };
-    
-export default ModalPop
 
+export default ModalPop;

@@ -2,11 +2,16 @@ import Button from "react-bootstrap/Button";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { link } from "react-router-dom"
 import ProfileSettings from "./ProfileSettings";
+import { url } from "./index"
 import "./styles.css"
 
 const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
   console.log("WTF HAHAHAH", user);
+
+  const PDFhref = url + `/users/${user._id}/CV`
+
   return (
     <>
       <Jumbotron
@@ -41,6 +46,15 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
                 More
               </Button>
             </p>
+            <p>
+              <a href={PDFhref} > 
+              <Button variant="white" className="jumbobtn ml-2">
+                Download PDF
+              </Button>
+              </a>
+              </p>
+
+            
             {identification === "me" ? (
               <div className="opened-to-work text-left p-2">
                 <div className="mb-0">

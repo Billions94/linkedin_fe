@@ -1,11 +1,11 @@
 ------------------------------NavBar CSS-----------------------------
 
 .darknavicon {
-  filter: opacity(0.5) drop-shadow(0 0 0 rgb(75, 75, 75));
+  filter: opacity(0.5) drop-shadow(0 0 0 rgb(112, 112, 112));
 }
 
 .avatar {
-  margin-top: 14px;
+  margin-top: 8px;
 }
 
 .xxx {
@@ -39,8 +39,8 @@
   background-color: rgb(233, 233, 233);
   color: rgb(153, 52, 52);
   width: 1px;
-  height: 61px;
-  margin-left: 20px;
+  height: 60px;
+  margin-left: 35px;
   margin-top: -70px;
 }
 
@@ -55,9 +55,7 @@
   align-items: flex-start;
 }
 
-.arrow {
-  margin-top: -2px;
-}
+
 
 .search {
   width: 280px;
@@ -126,4 +124,91 @@
   border-radius: 50%;
   padding: 6px 12px;
   cursor: pointer;
+}
+
+.customDropdown::after {
+  display: none;
+}
+
+.customDropdown {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin-left: -40 px;
+}
+
+.customDropdown:hover:active:focus {
+  background-color: transparent !important;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.customDropdown:focus {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.customDropdown:focus-visible {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.customDropdown:active {
+  background-color: transparent !important;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.customDropdown {
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin-left: -40 px;
+}
+
+.dropdownMenuButton {
+  padding-left: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  border-radius: 20px;
+  background: rgba(22, 22, 22, 0.541) !important;
+  border: none;
+  box-shadow: none !important;
+}
+
+.customDropdownMenu {
+  background-color: white;
+
+}
+
+.customDropdownMenuItem {
+  background-color: rgb(43, 42, 42) !important;
+}
+
+.visibleToAllBtn {
+  border: 1px solid rgb(19, 67, 172) !important;
+  border-radius: 30px;
+  width: 230px !important;
+  
+}
+
+.visibleToAllBtn:hover {
+    border: 2px solid grey !important;
+    background-color: rgb(231, 230, 230) !important;
+    border-radius: 30px;
+}
+
+.navMe {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+
 }

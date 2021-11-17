@@ -83,6 +83,8 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
               </div>
               <hr className="actuall-feed-hr mt-0" />
               <div className=" d-flex list-pad2 ">
+              <Link to={"/profile/" + elem.user._id} 
+                  className="text-left text-dark  text-decoration-none">
                 <div>
                   <img
                     className="mr-2 rounded-pill"
@@ -92,6 +94,8 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token }) => {
                     //   style={{ borderRadius: "50%" }}
                   />{" "}
                 </div>
+                </Link>
+                
                 <div>
                   <Link to={"/profile/" + elem.user._id} 
                   className="text-left text-dark  text-decoration-none">

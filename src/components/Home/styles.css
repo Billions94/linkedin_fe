@@ -208,7 +208,7 @@
 }
 
 .actuall-feed-hr {
-  width: 510px;
+  width: 100%;
   margin-left: 0px;
   margin-top: 50px;
 }
@@ -241,7 +241,7 @@
 
 .show-more-btn1 {
   background-color: #a9aaac;
-  border: none;
+  border: none !important;
   width: 110%;
   height: 5vh;
 }
@@ -302,8 +302,7 @@
 }
 
 .SideBarSm-Hr {
-  width: 255px;
-  margin-left: -12px;
+  margin-left: 0;
 }
 
 #SideBarHeader {

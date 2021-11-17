@@ -1,5 +1,4 @@
 import { OverlayTrigger, Popover } from "react-bootstrap";
-import AddFeedUsers from "./AddFeedUsers";
 import { useState, useEffect} from "react";
 
 const TopCourses = () => {
@@ -51,20 +50,11 @@ const TopCourses = () => {
               </div>
                 ))
               }
-
-                {/* <div className="pl-1 pr-1 top-course-item">
-                    <div className="course-name truncate"><p>2. Teaching and its Practices</p></div>
-                    <div className="course-owner truncate">Ciara Dunley</div>
-                </div>
-                <div className=" pl-1 pr-1 top-course-item">
-                    <div className="course-name truncate"><p>3. Minfulness in Your Daily Life</p></div>
-                    <div className="course-owner truncate">Gareth Brewly</div>
-                </div> */}
         
             </div>
           <div className="view-all-recommendations">
-            <p>
-              Show more on LinkedIn Learning
+            <p className='text-center'>
+              Show more on Anime's 
               <i className="bi bi-arrow-right"></i>
             </p>
           </div>

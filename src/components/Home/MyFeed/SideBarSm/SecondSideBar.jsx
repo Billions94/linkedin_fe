@@ -18,7 +18,7 @@ const SecondSideBar = () => {
               <Accordion defaultActiveKey="0">
                 <Card className="accordion">
                   <Accordion.Toggle
-                    className="container-fluid show-more-button1 "
+                    className="container-fluid show-more-button1 border-0"
                     as={Card.Header}
                     eventKey="0"
                     style={{ width: "100%", backgroundColor: "transparent" }}
@@ -72,7 +72,7 @@ const SecondSideBar = () => {
               <Accordion defaultActiveKey="0" className="mt-0">
                 <Card className="accordion">
                   <Accordion.Toggle
-                    className="container-fluid show-more-button1 "
+                    className="container-fluid show-more-button1 border-0 "
                     as={Card.Header}
                     eventKey="0"
                     style={{ width: "100%", backgroundColor: "transparent" }}
@@ -150,7 +150,7 @@ const SecondSideBar = () => {
                     className="container-fluid show-more-button1"
                     as={Card.Header}
                     eventKey="0"
-                    style={{ width: "100%", backgroundColor: "transparent" }}
+                    style={{ width: "100%", backgroundColor: "transparent", }}
                   >
                     <div className="d-flex div-in-acc">
                       <a href="https://www.linkedin.com/feed/following/?filterType=channel&focused=true">

@@ -5,7 +5,7 @@ const PutExExp = async (id, userName, expId, setExpId, lgShow, setLgShow) => {
     process.env.REACT_APP_URL + `/users/${userName}/experiences/${id}`;
 
   console.log(id, userName);
-  console.log("HERE ARE THE FUCKIN STATES: ", lgShow, setLgShow);
+  //console.log("HERE ARE THE FUCKIN STATES: ", lgShow, setLgShow);
 
   try {
     let exp = await fetchSinglUserExp(url);

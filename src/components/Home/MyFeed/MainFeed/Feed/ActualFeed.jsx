@@ -2,16 +2,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Accordion, Card, Image } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import POSTPic from "./POSTPic";
 import { useEffect, useState } from "react";
 import PUTModal from "./PUTModal";
 import {Link} from "react-router-dom"
-import { postTimer } from "../../index";
-import { deletePost, me } from "../../index";
-import "../../styles.css"
-import Comments from "./Comments/Comments";
+import { postTimer } from "../../../index";
+import { deletePost, me } from "../../../index";
+import "./styles.css"
+import Comments from "../Comments/Comments";
+import Likes from "../Likes/Likes";
 
 const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
   const [smShow, setSmShow] = useState(false);
@@ -157,12 +156,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
               <hr className="actuall-feed-hr mt-0" />
               <Row>
                 <Col className="px-0 actuall-feed-interact">
-                  <b>
-                    <button className="btn btn-primary actuall-feed-h5">
-                      <i className="bi text-muted bi-hand-thumbs-up"></i>&nbsp;{" "}
-                      <span className="text-muted">Like</span>
-                    </button>{" "}
-                  </b>
+                    <Likes postID={elem._id} />
                 </Col>
                 <Col className="px-0 actuall-feed-interact">
                   <b>

@@ -137,7 +137,7 @@ const Comments = ({ postID, user }) => {
                 <div>
                   <Image
                     className=" d-block g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
-                    src={user.image}
+                    src={c.image}
                     alt="Image Description"
                   />
                 </div>

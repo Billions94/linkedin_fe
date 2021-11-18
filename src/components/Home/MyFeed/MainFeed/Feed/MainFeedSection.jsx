@@ -6,9 +6,11 @@ import "./styles.css";
 import PUTModal from "./PUTModal";
 import POSTPic from "./POSTPic";
 
+
 const MainFeedSection = ({ user }) => {
   let [feed, setFeed] = useState([]);
   const [smShow, setSmShow] = useState(false);
+
   const [smShowPUT, setSmShowPUT] = useState(false);
   const [putPost, setPutPost] = useState("");
   const [pic, setPic] = useState(false);
@@ -23,15 +25,18 @@ const MainFeedSection = ({ user }) => {
         setFeed(slicedFeed);
         console.log("=======================>", slicedFeed);
       }
+
     } catch (e) {
       console.log(e);
     }
   };
 
+
   useEffect(() => {
     fetchFeed();
     console.log(feed);
   }, []);
+
 
   return (
     <>
@@ -61,6 +66,7 @@ const MainFeedSection = ({ user }) => {
         putPost={putPost}
       />
       <POSTPic fetchFeed={fetchFeed} pic={pic} setPic={setPic} id={putPost} />
+
     </>
   );
 };

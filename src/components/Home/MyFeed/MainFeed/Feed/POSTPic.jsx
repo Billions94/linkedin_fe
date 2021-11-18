@@ -6,6 +6,7 @@ import "./styles.css";
 import { url } from "../../../index";
 
 const POSTPic = ({ fetchFeed, pic, setPic, id }) => {
+
   const [image, setImage] = useState(null);
 
   const target = (e) => {
@@ -14,20 +15,25 @@ const POSTPic = ({ fetchFeed, pic, setPic, id }) => {
       setImage(e.target.files[0]);
     }
   };
+
   console.log(`this is the id for IMAGE UPDATE:`, id);
+
   const submitImage = async (e) => {
     e.preventDefault();
     try {
       let formData = new FormData();
       formData.append("image", image);
 
-      const response = await fetch(
-        url + `/posts/${id}/upload`,
+
+      const response = await fetch(url + `/posts/${id}/upload`,
+
 
         {
           method: "POST",
           body: formData,
+
           headers: {},
+
         }
       );
       if (response.ok) {
@@ -46,7 +52,11 @@ const POSTPic = ({ fetchFeed, pic, setPic, id }) => {
     }
   };
 
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    
+  }, []);
+
 
   return (
     <>

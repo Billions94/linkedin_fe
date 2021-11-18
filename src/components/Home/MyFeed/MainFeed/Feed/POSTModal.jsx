@@ -11,9 +11,11 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
   const [text, setText] = useState({ text: "" });
   const [image, setImage] = useState([]);
 
+
   const newPost = async (e) => {
     e.preventDefault(e);
     try {
+
       const response = await fetch(url + `/posts/` + user.userName, {
         method: "POST",
         body: JSON.stringify(text),
@@ -25,12 +27,14 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
         let post = await response.json();
         console.log(`this is the post`, post);
 
+
         try {
           let formData = new FormData();
           formData.append("image", image);
 
-          const response = await fetch(
-            url + `/posts/${post._id}/upload`,
+        
+          const response = await fetch(url + `/posts/${post._id}/upload`,
+        
 
             {
               method: "POST",
@@ -41,6 +45,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
             }
           );
 
+
           if (response.ok) {
             console.log(response);
 
@@ -49,6 +54,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
             setText({ text: "" });
             fetchFeed();
             setSmShow(false);
+
           } else {
             console.log(`wow... that wasn't supposed to happen... Error`);
             alert(`Woops we lost your data in the void .. try refreshing`);
@@ -66,6 +72,7 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
     setText(text);
     console.log(text);
   }, [text]);
+
 
   return (
     <>
@@ -97,12 +104,11 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
               />
             </Form.Group>
             <div className="d-flex justify-content-end">
-              <Form.Group className="mb-3" controlId="#1">
-                <Form.Control
-                  type="file"
-                  onChange={(e) => setImage(e.target.files[0])}
-                />
+
+            <Form.Group className="mb-3" controlId="#1">
+              <Form.Control type="file" onChange={(e)=> setImage(e.target.files[0])} />
               </Form.Group>
+                
 
               <Button
                 variant="primary"

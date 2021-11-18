@@ -7,6 +7,7 @@ import POSTPic from "./POSTPic";
 import "./styles.css";
 
 const StartAPost = ({ smShow, setSmShow, fetchFeed, token, user }) => {
+
   const [pic, setPic] = useState(false);
 
   return (
@@ -30,6 +31,7 @@ const StartAPost = ({ smShow, setSmShow, fetchFeed, token, user }) => {
             fetchFeed={fetchFeed}
             token={token}
             user={user}
+
           />
           <Button
             onClick={() => {

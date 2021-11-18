@@ -10,9 +10,11 @@ const PUTModal = ({ smShowPUT, setSmShowPUT, fetchFeed, putPost }) => {
 
   console.log("i am the id", putPost);
 
+
   const updatePost = async (e) => {
     e.preventDefault(e);
     try {
+
       const response = await fetch(url + `/posts/${putPost}`, {
         method: "PUT",
         body: JSON.stringify(text),
@@ -20,12 +22,15 @@ const PUTModal = ({ smShowPUT, setSmShowPUT, fetchFeed, putPost }) => {
           "Content-Type": "application/json",
         },
       });
+
       if (response.ok) {
         console.log(response);
         console.log("Update successfully");
         fetchFeed();
         setText({ text: "" });
+
         setSmShowPUT(false);
+
       } else {
         console.log(text);
 
@@ -45,8 +50,10 @@ const PUTModal = ({ smShowPUT, setSmShowPUT, fetchFeed, putPost }) => {
   return (
     <>
       <Modal
+
         show={smShowPUT}
         onHide={() => setSmShowPUT(false)}
+
         aria-labelledby="example-modal-sizes-title-sm"
       >
         <Modal.Header closeButton>

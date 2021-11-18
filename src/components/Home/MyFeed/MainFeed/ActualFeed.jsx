@@ -44,23 +44,6 @@ const ActualFeed = ({
                 <Col className="text-right">
                   {elem.user._id == me && (
                     <>
-                      {/*  // these two guys are now populating MainFeedSection
-                      
-                      <PUTModal
-                        fetchFeed={fetchFeed}
-                        reversedFeed={reversedFeed}
-                        smShowPUT={smShowPUT}
-                        setSmShowPUT={setSmShowPUT}
-                        id={elem._id}
-                        token={token}
-                      /> */}
-                      {/* <POSTPic
-                        fetchFeed={fetchFeed}
-                        pic={pic}
-                        setPic={setPic}
-                        id={elem._id}
-                      /> */}
-
                       <div className=" d-flex">
                         <Dropdown className="dropdowntext actuallFeedD mr-5 ">
                           <Dropdown.Toggle

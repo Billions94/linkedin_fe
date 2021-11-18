@@ -10,7 +10,8 @@ const Comments = ({ postID, user }) => {
   const [comments, setComments] = useState({
     text: "",
     userName: user.userName,
-    user: user._id
+    user: user._id,
+    image: user.image
   });
 
   const [updateComment, setUpdateComment] = useState({
@@ -115,7 +116,8 @@ const Comments = ({ postID, user }) => {
           onChange={(e) => setComments({...comments,
             text: e.target.value,
             userName: user.name,
-            user: user._id })}
+            user: user._id,
+            image: user.image })}
           placeholder="start typing to share your thoughts...."
         />
       </div>

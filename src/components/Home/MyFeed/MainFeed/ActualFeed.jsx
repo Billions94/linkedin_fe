@@ -28,58 +28,96 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
           <div key={elem._id} id={elem._id}>
             <div className="section-container pt-2 pb-0 mb-2 list-group list-group-flush">
               <div className=" d-flex justify-content-between list-pad1 ">
-                {/* <h4 className="text-right">...</h4> */}
                 <h6 style={{fontSize:"12px"}} >Posted {postTimer(elem.updatedAt)} ago</h6>
                 <Col className="text-right">
                   {elem.user._id == me && (
                     <>
-                      <Button
-                        variant="light"
-                        className="rounded-pill mr-1"
-                        style={{ width: "40px" }}
-                        onClick={() => deletePost(elem._id, fetchFeed)}
-                      >
-                        <i class="bi bi-trash"></i>
-                      </Button>
-                      <Button
-                        variant="light"
-                        className="rounded-pill mr-1"
-                        style={{ width: "40px" }}
-                        onClick={() => {
-                          setSmShow(true);
-                        }}
-                      >
-                        <i class="bi bi-pencil"></i>
-                      </Button>
-                      <Button
-
-                        variant="light"
-                        className="rounded-pill"
-                        style={{ width: "40px" }}
-
-                        onClick={() => {
-                          setPic(true);
-                        }}
-                      >
-
-                        <i class="bi bi-image"></i>
-
-                      </Button>
                       <PUTModal
                         fetchFeed={fetchFeed}
                         reversedFeed={reversedFeed}
                         smShow={smShow}
                         setSmShow={setSmShow}
                         id={elem._id}
-                        token={token}
-                      />
+                        token={token} />
                       <POSTPic
                         fetchFeed={fetchFeed}
                         pic={pic}
                         setPic={setPic}
                         id={elem._id}
-                        token={token}
-                      />
+                        token={token} />
+
+                    <div className=" d-flex">         
+                   <Dropdown className="dropdowntext actuallFeedD mr-5 ">
+                     <Dropdown.Toggle
+                       style={{ marginLeft: "400px", marginTop: "-24px" }}
+                       className="btn btn-dark reply remove"
+                     >
+                       <img
+                         className="lrdimg"
+                         width="17px"
+                         src="https://img.icons8.com/ios-filled/50/000000/ellipsis.png"/>
+                     </Dropdown.Toggle>
+                     <Dropdown.Menu
+                       className='w-10'
+                       style={{
+                         padding: "18px",
+                         borderRadius: "25px",
+                         border: "1px solid rgb(216, 215, 215)",
+                       }}
+                     >
+                       <br />
+
+                       <a href='#' className='text-dark' >
+                       <div className="d-flex experiment">
+                         <div style={{ cursor: "pointer" }} className="mr-0">
+                           <img
+                             className="lrdimg"
+                             width="17px"
+                             src="https://img.icons8.com/ios-filled/50/000000/edit--v1.png"/>
+                         </div>
+                         <div onClick={() => {setSmShow(true)}}
+                              className="deleteBlog text-decoration-underline"
+                              style={{ marginLeft: "13px", cursor: "pointer" }}>
+                              edit
+                         </div>
+                       </div>
+                       </a>
+
+                       <a href='#' className='text-dark' >
+                       <div className="d-flex">
+                         <div style={{ cursor: "pointer" }} className="mr-0">
+                           <img
+                             className="lrdimg"
+                             width="17px"
+                             src="https://img.icons8.com/ios-filled/50/000000/upload--v1.png"/>
+                         </div>
+                         <div onClick={() => {setPic(true);}}
+                              className="deleteBlog text-decoration-underline"
+                              style={{ marginLeft: "13px", cursor: "pointer" }}>
+                              upload Pic
+                         </div>
+                       </div>
+                       </a>
+                       
+                       <a href='#' className='text-dark' >
+                       <div className="d-flex">
+                         <div style={{ cursor: "pointer" }} className="mr-0">
+                           <img
+                             className="lrdimg"
+                             width="17px"
+                             src="https://img.icons8.com/fluency/50/000000/delete-sign.png"
+                           />
+                         </div>
+                         <div onClick={() => deletePost(elem._id, fetchFeed)}
+                              className="deleteBlog text-decoration-underline"
+                              style={{ marginLeft: "13px", cursor: "pointer" }}>
+                              delete
+                         </div>
+                       </div>
+                       </a>
+                     </Dropdown.Menu>
+                   </Dropdown>
+                 </div>
                     </>
                   )}
                 </Col>{" "}
@@ -155,7 +193,7 @@ const ActualFeed = ({ reversedFeed, fetchFeed, token, user }) => {
                     </button>{" "}
                   </b>
                 </Col>
-                {elem.user._id === elem._id ? null : <Comments comment={elem.comments} user={user}/>}
+                {elem.user._id === elem._id ? null : <Comments postID={elem._id} user={user}/>}
               </Row>
             </div>
           </div>

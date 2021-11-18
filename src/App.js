@@ -21,7 +21,7 @@ function App() {
     <Router>
       <NavBar currentUser={currentUser} />
       <Route path="/home"  exact render={(props) => <Home {...props} currentUser={currentUser} />} />
-      <Route path="/profile/:id" exact render={(props) => <MyProfile {...props} setCurrentUser={setCurrentUser} />} />
+      <Route path="/profile/:id" exact render={(props) => <MyProfile {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
       <MyFooter />
     </Router>
     </div>

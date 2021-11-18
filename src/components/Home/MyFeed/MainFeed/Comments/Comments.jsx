@@ -4,17 +4,22 @@ import { useState, useEffect } from "react";
 import { url } from "../../../index";
 import { postTimer } from "../../../../../Lib";
 
-const Comments = ({ comment, user }) => {
+const Comments = ({ postID, user }) => {
   const [comments, setComments] = useState({
     text: ""
   });
+
+  const [updateComment, setUpdateComment] = useState({
+    text: ""
+  })
+
 
   const [data, setData] = useState(null);
 
   const fetchComments = async () => {
     try {
       const response = await fetch(
-        url + `/posts/6193e2d8527d64e241a3d328/comments`
+        url + `/posts/${postID}/comments`
       );
       if (response.ok) {
         const data = await response.json();
@@ -29,7 +34,7 @@ const Comments = ({ comment, user }) => {
 
   const postComment = async () => {
     try {
-      const response = await fetch(url + `/posts/6193e2d8527d64e241a3d328/comments`, {
+      const response = await fetch(url + `/posts/${postID}/comments`, {
         method: "POST",
         body: JSON.stringify(comments),
         headers: {
@@ -42,6 +47,42 @@ const Comments = ({ comment, user }) => {
           text: ""
         })
        }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const editComment = async (c) => {
+    try {
+      const response = await fetch(url + `/posts/${postID}/comments/${c._id}`, {
+        method: "PUT",
+        body: JSON.stringify(updateComment),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        console.log("Comment updated");
+        fetchComments()
+        setUpdateComment({
+          text: ""
+        })
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const deleteComment = async (c) => {
+    console.log('its cccccccccc', c._id)
+    try {
+      const response = await fetch(url + `/posts/${postID}/comments/${c._id}`, {
+        method: "DELETE",
+      })
+      if (response.ok) {
+        console.log("Comment deleted");
+        fetchComments()
+      }
     } catch (error) {
       console.log(error)
     }
@@ -76,7 +117,7 @@ const Comments = ({ comment, user }) => {
       </div>
       {data && (
         <div className='mb-2'>
-          {comment.map((c) => (
+          {data.map((c) => (
             <>
               <div className="d-flex col-12">
                 <div>
@@ -86,7 +127,7 @@ const Comments = ({ comment, user }) => {
                     alt="Image Description"
                   />
                 </div>
-                <div className="cAndRDiv cAndR position-relative mb-1 ">
+                <div className="d-flex cAndRDiv cAndR position-relative mb-1 ">
                   <div
                     style={{
                       borderBottom: "1px solid rgb(216, 215, 215)",
@@ -94,19 +135,104 @@ const Comments = ({ comment, user }) => {
                     }}
                     className="text-muted  mb-2"
                   >
-                     <div className='text-right'>{postTimer(c.createdAt)}</div>
+                     <div className='t postTime'>{postTimer(c.createdAt)}</div>
+                     <div className=" d-flex">
+                   
+                    <Dropdown className="dropdowntext ">
+                      <Dropdown.Toggle
+                        style={{ marginLeft: "400px", marginTop: "-24px" }}
+                        className="btn btn-dark reply remove"
+                      >
+                        <img
+                          className="lrdimg"
+                          width="17px"
+                          src="https://img.icons8.com/ios-filled/50/000000/ellipsis.png"/>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu
+                        className='w-10'
+                        style={{
+                          padding: "18px",
+                          borderRadius: "25px",
+                          border: "1px solid rgb(216, 215, 215)",
+                        }}
+                      >
+                        <br />
+                        <div className='experiment'>
+                     <Dropdown className="dropdowntext">
+                          <Dropdown.Toggle className="btn btn-dark remove">
+                            {/* <div className='d-flex'> */}
+                           {/* <div className='mr-2 editicon'>  */}
+                          <img width="17px" 
+                          className='mr-2 editicon'
+                          src="https://img.icons8.com/ios-filled/50/000000/edit-chat-history.png"/>
+                            {/* </div> */}
+                            <a className='text-dark'>edit</a>
+                            {/* </div> */}
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu
+                            style={{
+                              paddingLeft: "10px",
+                              paddingRight: "10px",
+                              borderRadius: "25px",
+                              border: "1px solid rgb(216, 215, 215)",
+                            }}
+                          >
+                            <textarea
+                              className="mt-0 textAr"
+                              value={updateComment.text}
+                              onChange={(e) =>
+                                setUpdateComment({ ...updateComment, text: e.target.value })
+                              }
+                              placeholder="update comment..."
+                            />
+                            <br />
+                            {!updateComment.text ? null :
+                              <button
+                              style={{ borderRadius: "50px" }}
+                              className="btn btn-dark nobtnshadow"
+                              onClick={(e) => editComment(c)}>
+                                send
+                              </button>
+                            }
+                          </Dropdown.Menu>
+                        </Dropdown>
+                       </div>
+                        
+                        <a href='#' className='text-dark' >
+                        <div className="d-flex">
+                          <div style={{ cursor: "pointer" }} className="mr-0">
+                            <img
+                              className="lrdimg"
+                              width="17px"
+                              src="https://img.icons8.com/fluency/50/000000/delete-sign.png"
+                            />
+                          </div>
+                          <div
+                            onClick={(e) => deleteComment(c)}
+                            className="deleteBlog text-decoration-underline"
+                            style={{ marginLeft: "13px", cursor: "pointer" }}
+                          >
+                            delete
+                          </div>
+                        </div>
+                        </a>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </div>
+      
                   </div>
                   <div
-                    className="text-dark mt-0 mb-2"
+                    className="text-dark text-left mt-0 mb-2"
                     style={{ fontSize: "18px", lineHeight: "12px" }}
                   >
-                    <span className='text-left'>{user.name} {user.surname}</span>
+                    <small className='text-left commentUser'>{user.name} {user.surname}</small>
+                    <small className='text-left text-muted commentUserJob d-block mt-1'>{user.job}</small>
                   </div>
                   <div
                     style={{ fontSize: "16px" }}
-                    className=" cAndR mb-2 ml-5"
+                    className="mb-2 ml-5"
                   >
-                    {c.text}
+                    <p className='text-left commentText'>{c.text}</p>
                   </div>
                 </div>
               </div>

@@ -1,12 +1,17 @@
 import "./styles.css";
 import { Dropdown, Accordion, Image, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { url } from "../../../index";
+import { url, me } from "../../../index";
 import { postTimer } from "../../../../../Lib";
 
 const Comments = ({ postID, user }) => {
+
+  console.log('i am the user info ', user.name)
   const [comments, setComments] = useState({
-    text: ""
+    text: "",
+    userName: user.userName,
+    user: user._id,
+    image: user.image
   });
 
   const [updateComment, setUpdateComment] = useState({
@@ -14,7 +19,12 @@ const Comments = ({ postID, user }) => {
   })
 
 
+  console.log(comments.userName)
+  console.log(comments.user)
+
   const [data, setData] = useState(null);
+
+  // For Retriving Users 
 
   const fetchComments = async () => {
     try {
@@ -23,7 +33,7 @@ const Comments = ({ postID, user }) => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log("comments data", data.comments);
+        console.log("comments data", data);
         const commentData = data.comments.reverse();
         setData(commentData);
       }
@@ -103,14 +113,18 @@ const Comments = ({ postID, user }) => {
           type="textarea"
           rows={2}
           value={comments.text}
-          onChange={(e) => setComments({ ...comments, text: e.target.value })}
+          onChange={(e) => setComments({...comments,
+            text: e.target.value,
+            userName: user.name,
+            user: user._id,
+            image: user.image })}
           placeholder="start typing to share your thoughts...."
         />
       </div>
       <div className="mar-top clearfix mt-2 mb-2">
         {!comments.text ? null : (
           <button className="btn btn-sm btn-dark postCmBtn"
-              onClick={(e) => postComment(e)}>
+              onClick={(e) => postComment()}>
             <i className="fa fa-pencil fa-fw" /> Post
           </button>
         )}
@@ -123,7 +137,7 @@ const Comments = ({ postID, user }) => {
                 <div>
                   <Image
                     className=" d-block g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
-                    src={user.image}
+                    src={c.image}
                     alt="Image Description"
                   />
                 </div>
@@ -136,7 +150,9 @@ const Comments = ({ postID, user }) => {
                     className="text-muted  mb-2"
                   >
                      <div className='t postTime'>{postTimer(c.createdAt)}</div>
-                     <div className=" d-flex">
+
+                  { c.user !== me ? null :       
+                    <div className=" d-flex">
                    
                     <Dropdown className="dropdowntext ">
                       <Dropdown.Toggle
@@ -218,14 +234,14 @@ const Comments = ({ postID, user }) => {
                         </div>
                       </Dropdown.Menu>
                     </Dropdown>
-                  </div>
+                  </div>}
       
                   </div>
                   <div
                     className="text-dark text-left mt-0 mb-2"
                     style={{ fontSize: "18px", lineHeight: "12px" }}
                   >
-                    <small className='text-left commentUser'>{user.name} {user.surname}</small>
+                    <small className='text-left commentUser'>{c.userName}</small>
                     <small className='text-left text-muted commentUserJob d-block mt-1'>{user.job}</small>
                   </div>
                   <div

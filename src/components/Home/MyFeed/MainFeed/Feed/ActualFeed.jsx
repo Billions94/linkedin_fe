@@ -201,7 +201,7 @@ const ActualFeed = ({
               <Row>
                 <Col className="px-0 actuall-feed-interact">
 
-                    <Likes defaultLikes={['1']} onChange={console.log} postID={elem._id} />
+                    <Likes defaultLikes={['1']} likes={elem._id} onChange={console.log} postID={elem._id} />
 
                 </Col>
                 <Col className="px-0 actuall-feed-interact">
@@ -236,7 +236,7 @@ const ActualFeed = ({
                   </b>
                 </Col>
 
-                {elem.user._id === elem._id ? null : <Comments postID={elem._id} user={user}/>}
+                {elem.user._id === elem._id ? null : <Comments reversedFeed={reversedFeed} postID={elem._id} user={user}/>}
 
               </Row>
             </div>

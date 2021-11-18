@@ -21,7 +21,11 @@ const MyProfile = ({ currentUser, setCurrentUser }) => {
   const [user, setUser] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const CSVhref = `${url}/users/${user.userName}/experiences/CSV `;
-  const { id } = useParams();
+
+  let { id } = useParams();
+  if (id === "me") {
+    id = me;
+  }
   console.log(id);
   useEffect(() => {
     const fetchUser = async (id) => {

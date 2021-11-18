@@ -85,10 +85,12 @@ class NavBar extends Component {
                 )}
               </div>
             </>
-            <div className="collapse navbar-collapse home-margin"
-              id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse home-margin"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav mr-auto">
-              <div className="darknavicon pt-4 ml-2">
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <Link to={"/home"}>
                       <img
@@ -161,34 +163,50 @@ class NavBar extends Component {
                         <Dropdown.Toggle
                           className="customDropdown"
                           variant="success"
-                          id="dropdown-basic">
-                          
-                            {this.props.currentUser === me}
-                            <Avatar
-                              src={this.props.currentUser.image}
-                              className="d-block avatar"
-                              alt=""
-                              sx={{ width: 24, height: 24 }}
+                          id="dropdown-basic"
+                        >
+                          {this.props.currentUser == me}
+                          <Avatar
+                            src={this.props.currentUser.image}
+                            className="d-block avatar"
+                            alt=""
+                            sx={{ width: 24, height: 24 }}
+                          />
+                          <div className="d-flex">
+                            <span className="text-dark navMe"> Me </span>
+                            <img
+                              src="https://img.icons8.com/ios-filled/50/000000/sort-down.png"
+                              width="15px"
                             />
-                          <div className='d-flex'>
-                              <span className='text-dark navMe'> Me </span> 
-                              <img src="https://img.icons8.com/ios-filled/50/000000/sort-down.png" width='15px'/>
                           </div>
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu className='customDropdownMenu'>
-                          <div className='parentDiv d-flex mb-0'>
-                            <Link to={"/profile/me"} >
-                            <div>
-                              <img src={this.props.currentUser.image} alt='' width='55px' className='roundpic' />
-                            </div>
+                        <Dropdown.Menu className="customDropdownMenu">
+                          <div className="parentDiv d-flex mb-0">
+                            <Link to={"/profile/me"}>
+                              <div>
+                                <img
+                                  src={this.props.currentUser.image}
+                                  alt=""
+                                  width="55px"
+                                  className="roundpic"
+                                />
+                              </div>
                             </Link>
-                            <div className='vPfont ml-2'>
-                              <h4 className='vPfont'>{this.props.currentUser.name} {this.props.currentUser.surname}</h4>
-                              <h6 className='vPfont2 d-block mt-0'>{this.props.currentUser.job}</h6>
+                            <div className="vPfont ml-2">
+                              <h4 className="vPfont">
+                                {this.props.currentUser.name}{" "}
+                                {this.props.currentUser.surname}
+                              </h4>
+                              <h6 className="vPfont2 d-block mt-0">
+                                {this.props.currentUser.job}
+                              </h6>
                             </div>
                           </div>
-                          <div className='d-flex vPbDiv justify-content-center' href="#/action-1">
+                          <div
+                            className="d-flex vPbDiv justify-content-center"
+                            href="#/action-1"
+                          >
                             <Link
                               to={"/profile/me"}
                               className="d-block text-decoration-none pb-2"
@@ -198,47 +216,70 @@ class NavBar extends Component {
                                 lineSpace: "20px",
                               }}
                             >
-                              <button type='button' className='btn btn-white mt-2 viewProfile'>
-                                <span id='viewProf' className='ml-2 d-block'>View Profile</span>
-                            </button>
+                              <button
+                                type="button"
+                                className="btn btn-white mt-2 viewProfile"
+                              >
+                                <span id="viewProf" className="ml-2 d-block">
+                                  View Profile
+                                </span>
+                              </button>
                             </Link>
                           </div>
-                            <Dropdown.Divider />
-                            <div className='dropDownMenuAcc'>
-                              <h6 className='manageFont' href="#/action-2">
-                                Account
-                              </h6>
-                              <a href="#/action-3" className='text-muted d-block manageFontA'>
-                                Settings & Privacy
-                              </a>
-                              <a href="#/action-2" className='text-muted d-block manageFontA'>
-                                Help
-                              </a>
-                              <a href="#/action-3" className='text-muted d-block manageFontA'>
-                                Language
-                              </a>
-                            </div>
-                              <Dropdown.Divider />
-                              <div className='dropDownMenuAcc'>
-                              <h6 className='manageFont' href="#/action-2">
-                                Manage
-                              </h6>
-                              <a className='text-muted d-block manageFontA' href="#/action-3">
-                                Posts & Activity
-                              </a>
-                              <a className='text-muted d-block manageFontA' href="#/action-2">
-                                Job Posting Account
-                              </a>
-                            </div>
-                            <Dropdown.Divider />
-                              <div href="#/action-3" className='dropDownMenuAcc'>
-                                <a href='#' className='text-muted d-block manageFontA'>Sign Out</a>
-                              </div>
+                          <Dropdown.Divider />
+                          <div className="dropDownMenuAcc">
+                            <h6 className="manageFont" href="#/action-2">
+                              Account
+                            </h6>
+                            <a
+                              href="#/action-3"
+                              className="text-muted d-block manageFontA"
+                            >
+                              Settings & Privacy
+                            </a>
+                            <a
+                              href="#/action-2"
+                              className="text-muted d-block manageFontA"
+                            >
+                              Help
+                            </a>
+                            <a
+                              href="#/action-3"
+                              className="text-muted d-block manageFontA"
+                            >
+                              Language
+                            </a>
+                          </div>
+                          <Dropdown.Divider />
+                          <div className="dropDownMenuAcc">
+                            <h6 className="manageFont" href="#/action-2">
+                              Manage
+                            </h6>
+                            <a
+                              className="text-muted d-block manageFontA"
+                              href="#/action-3"
+                            >
+                              Posts & Activity
+                            </a>
+                            <a
+                              className="text-muted d-block manageFontA"
+                              href="#/action-2"
+                            >
+                              Job Posting Account
+                            </a>
+                          </div>
+                          <Dropdown.Divider />
+                          <div href="#/action-3" className="dropDownMenuAcc">
+                            <a
+                              href="#"
+                              className="text-muted d-block manageFontA"
+                            >
+                              Sign Out
+                            </a>
+                          </div>
                         </Dropdown.Menu>
                       </Dropdown>
-
                     </div>
-
                   </div>
                 </div>
                 <div className="darknavicon pt-4 ml-2">

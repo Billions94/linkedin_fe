@@ -21,9 +21,11 @@ const ActualFeed = ({
   setSmShowPUT,
   putPost,
   setPutPost,
+  pic,
+  setPic,
 }) => {
   // const [smShow, setSmShow] = useState(false);
-  const [pic, setPic] = useState(false);
+  //const [pic, setPic] = useState(false);
   const [comment, setComment] = useState(false);
   console.log("here goes the reversed feed", reversedFeed);
   return (
@@ -42,7 +44,9 @@ const ActualFeed = ({
                 <Col className="text-right">
                   {elem.user._id == me && (
                     <>
-                      {/* <PUTModal
+                      {/*  // these two guys are now populating MainFeedSection
+                      
+                      <PUTModal
                         fetchFeed={fetchFeed}
                         reversedFeed={reversedFeed}
                         smShowPUT={smShowPUT}
@@ -50,12 +54,12 @@ const ActualFeed = ({
                         id={elem._id}
                         token={token}
                       /> */}
-                      <POSTPic
+                      {/* <POSTPic
                         fetchFeed={fetchFeed}
                         pic={pic}
                         setPic={setPic}
                         id={elem._id}
-                      />
+                      /> */}
 
                       <div className=" d-flex">
                         <Dropdown className="dropdowntext actuallFeedD mr-5 ">
@@ -122,6 +126,7 @@ const ActualFeed = ({
                                 <div
                                   onClick={() => {
                                     setPic(true);
+                                    setPutPost(elem._id);
                                   }}
                                   className="deleteBlog text-decoration-underline"
                                   style={{

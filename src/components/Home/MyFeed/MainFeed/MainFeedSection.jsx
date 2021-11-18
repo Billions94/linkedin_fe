@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { url } from "../../index";
 import "../../styles.css";
 import PUTModal from "./PUTModal";
+import POSTPic from "./POSTPic";
 
 const MainFeedSection = ({ user }) => {
   let [feed, setFeed] = useState([]);
   const [smShow, setSmShow] = useState(false);
   const [smShowPUT, setSmShowPUT] = useState(false);
   const [putPost, setPutPost] = useState("");
+  const [pic, setPic] = useState(false);
   const fetchFeed = async () => {
     try {
       const response = await fetch(url + `/posts/`);
@@ -48,6 +50,8 @@ const MainFeedSection = ({ user }) => {
         setSmShowPUT={setSmShowPUT}
         putPost={putPost}
         setPutPost={setPutPost}
+        pic={pic}
+        setPic={setPic}
       />
 
       <PUTModal
@@ -56,6 +60,7 @@ const MainFeedSection = ({ user }) => {
         fetchFeed={fetchFeed}
         putPost={putPost}
       />
+      <POSTPic fetchFeed={fetchFeed} pic={pic} setPic={setPic} id={putPost} />
     </>
   );
 };

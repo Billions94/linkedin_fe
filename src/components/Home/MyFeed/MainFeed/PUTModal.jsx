@@ -7,7 +7,7 @@ import "../../styles.css"
 
 
 
-const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id, token}) => {
+const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id }) => {
   const [text, setText] = useState({ text: "" });
   
   console.log('i am the id', id)
@@ -21,7 +21,6 @@ const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id, token}) => {
           body: JSON.stringify(text),
           headers: {
             "Content-Type": "application/json",
-            Authorization:token,
           },
         }
       );

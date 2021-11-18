@@ -3,10 +3,13 @@ import { fetchInfo } from "./index";
 import { Link } from "react-router-dom";
 import { url } from "./index";
 import "./styles.css";
+import { url } from "../../../Lib";
 
 const PyMk = ({ refresh, setRefresh }) => {
   const [data, setData] = useState([]);
- 
+
+  const myUrl = `${url}/users`;
+
 
   useEffect(() => {
     const fetchData = async () => {

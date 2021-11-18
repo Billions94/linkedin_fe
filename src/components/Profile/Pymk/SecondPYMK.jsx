@@ -1,13 +1,17 @@
+
 import { useState, useEffect } from "react";
 import { fetchInfo } from "./index";
+
 import { Link } from "react-router-dom";
 import { Accordion, Card, Button } from "react-bootstrap";
 import "./styles.css";
 
 const SecondPYMK = () => {
   const [data, setData] = useState([]);
-  const [toggled, setToggled] = useState(false);
-  const myUrl = `http://localhost:3001/users`;
+
+  const [toggled, setToggled] = useState(false)
+  const myUrl = url + `/users`;
+
 
   useEffect(() => {
     const fetchData = async () => {

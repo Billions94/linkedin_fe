@@ -1,7 +1,8 @@
-const { REACT_APP_TOKEN, REACT_APP_ME } = process.env;
+const { REACT_APP_TOKEN, REACT_APP_ME, REACT_APP_URL } = process.env;
 
 export const token = REACT_APP_TOKEN;
 export const me = REACT_APP_ME;
+export const url = REACT_APP_URL;
 
 // FETCH USER PROFILES
 export const fetchInfo = async (url) => {

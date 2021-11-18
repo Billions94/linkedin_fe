@@ -8,10 +8,10 @@ import POSTPic from "./POSTPic";
 import { useEffect, useState } from "react";
 import PUTModal from "./PUTModal";
 import { Link } from "react-router-dom";
-import { postTimer } from "../../index";
-import { deletePost, me } from "../../index";
-import "../../styles.css";
-import Comments from "./Comments/Comments";
+import { postTimer } from "../../../index";
+import { deletePost, me } from "../../../index";
+import "./styles.css";
+import Comments from "../Comments/Comments";
 
 const ActualFeed = ({
   user,

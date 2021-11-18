@@ -1,0 +1,400 @@
+/*------------------------------Jumbotron CSS------------------------------*/
+.jumbobtn-open-to {
+  border: 1px solid rgb(33, 93, 172);
+  background-color: rgb(33, 93, 172);
+  border-radius: 20px;
+}
+
+.nameHeader {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  font-style: normal;
+}
+
+.eduandexp {
+  flex-direction: column;
+  align-items: baseline;
+  margin-left: 120px;
+}
+
+.jumbobtn {
+  background-color: transparent;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.jumbobtn-open-to:hover {
+  outline: 2px solid grey;
+  background-color: #004182;
+}
+
+.jumbobtn:hover {
+  outline: 2px solid grey;
+  background-color: rgb(221, 218, 218);
+}
+
+.jumbobtn:focus,
+.pymkbtn:focus {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.jumbo-a {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.opened-to-work {
+  border-radius: 10px;
+  background-color: rgb(231, 226, 221);
+}
+
+/*------------------------------SideBarSm CSS------------------------------*/
+.goldicon {
+  filter: opacity(0.5) drop-shadow(rgb(207, 140, 15));
+}
+
+.discover-more {
+  font-size: "16px";
+  font-weight: "600";
+  line-height: "24px";
+}
+
+.opacity {
+  opacity: 0;
+}
+
+.mr-7 {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.accordion {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.accordion:hover .opacity {
+  opacity: 1;
+}
+
+.SideBarDiv {
+  border-radius: 20px;
+}
+
+.jumboSidebar {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 12px !important;
+}
+
+.SideBarSm-row {
+  position: relative;
+}
+
+.SideBarImg {
+  position: absolute;
+  margin-left: 60px;
+}
+
+.SideBarSm-recent-btn {
+  position: relative;
+  background-color: transparent;
+  border: none;
+}
+
+.SideBarSm-recent-btn1 {
+  position: relative;
+  background-color: transparent;
+  border: none;
+}
+
+/*------------------------------Home SideBar Right-----------------------------*/
+
+.learn-more-link {
+  color: #0a66c2;
+  font-weight: 500;
+}
+.learn-more-link:hover {
+  color: #0a66c2;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-icon {
+  color: #00000099;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.view-all-recommendations {
+  font-size: small;
+  font-weight: 600;
+  color: #00000099;
+  border-radius: 5px;
+}
+.view-all-recommendations:hover {
+  font-size: small;
+  font-weight: 600;
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+.course-container-section {
+  overflow: hidden;
+  text-align: left;
+  padding: 10px 4px 15px 4px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.course-name {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 0 !important;
+  padding: 0 16px;
+}
+.course-name p {
+  margin-bottom: 0;
+}
+.course-owner {
+  color: #00000099;
+  font-size: 12px;
+  margin-bottom: 5px;
+  padding: 0px 0px 0px 20px;
+}
+.truncate {
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.courses-container {
+  padding: 15px;
+}
+.top-course-item:hover {
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+}
+
+.accordion-body-background {
+  background-color: "white";
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+}
+/* ---------------------FEED MAIN------------------- */
+
+.feedelement {
+  border-radius: 10px !important;
+  text-align: left;
+}
+.feedelementImg {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.main-feed-post {
+  width: 100%;
+  background-color: white;
+  /* outline: none; */
+}
+
+.actuall-feed-hr {
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 50px;
+}
+
+.actuall-feed-interact {
+  cursor: pointer;
+}
+
+/* .actuall-feed-interact:hover{
+    background-color: red;
+  } */
+
+.actuall-feed-h5 {
+  margin-top: -12px;
+  margin-bottom: 6px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.actuall-feed-h5:hover {
+  outline: none;
+  border: none;
+  background-color: rgb(224, 224, 224);
+  border-color: transparent;
+}
+
+.SideBarSm-recent-btn1:hover {
+  background-color: transparent;
+}
+
+.show-more-btn1 {
+  background-color: #a9aaac;
+  border: none !important;
+  width: 110%;
+  height: 5vh;
+}
+
+.mr-7 {
+  margin: 0 12px 0 5px;
+}
+
+/* .SideBarSm-recent-btn::after {
+    position: absolute;
+    content: "︿";
+    height: 10px;
+  
+    margin-left: 90px;
+  } */
+.whoviewied-flex {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wvmpDiv:hover {
+  background-color: rgb(231, 229, 229);
+  padding: 0;
+}
+
+.toggle-rlt {
+  position: relative;
+}
+
+.dropdown-Menu {
+  width: 100% !important;
+}
+
+.div-in-acc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.div-in-acc1 {
+  flex-direction: row;
+  justify-content: left;
+}
+
+.mr-6 {
+  margin-right: 146px;
+}
+
+.SideBarSm-p {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.SideBarSm-h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.SideBarSm-Hr {
+  margin-left: 0;
+}
+
+#SideBarHeader {
+  background-image: url("https://wallpaperaccess.com/full/1398313.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100% 15%;
+}
+
+.actuallFeedD {
+  margin-left: -40px !important;
+  margin-top: 18px !important;
+}
+
+.posted {
+  border-bottom: 1px solid grey;
+}
+
+.remove {
+  background-color: transparent;
+  border: none;
+}
+
+.remove:hover {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.remove:focus {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.remove:active {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.remove:focus-visible {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.w-10 {
+  width: 60px !important;
+  margin-left: -5px !important;
+  margin-top: -30px !important;
+}
+
+.editicon {
+  margin-left: -15px;
+}
+
+.nobtnshadow:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nobtnshadow:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.postTime {
+  margin-left: 330px !important;
+}
+
+.commentUser {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.commentUserJob {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.commentText {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.experiment {
+  margin-top: -33px;
+}

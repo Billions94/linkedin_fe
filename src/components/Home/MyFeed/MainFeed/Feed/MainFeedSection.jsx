@@ -1,8 +1,8 @@
 import ActualFeed from "./ActualFeed";
 import StartAPost from "./StartAPost";
 import { useState, useEffect } from "react";
-import { url } from "../../index";
-import "../../styles.css";
+import { url } from "../../../index";
+import "./styles.css";
 import PUTModal from "./PUTModal";
 import POSTPic from "./POSTPic";
 

@@ -2,8 +2,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import { url, currentUser } from "../../index";
-import "../../styles.css";
+import { url, currentUser } from "../../../index";
+import "./styles.css";
 
 const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
   console.log("i am the fetch feed", fetchFeed);

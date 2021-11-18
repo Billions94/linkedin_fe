@@ -1,10 +1,10 @@
 import { withRouter } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import SideBarSm from "./MyFeed/SideBarSm/SideBarSm";
-import SideBarRight from "./MyFeed/RightSideBar/SideBarRight";
-import MainFeedSection from "../Home/MyFeed/MainFeed/MainFeedSection";
+import SideBarSm from "../../SideBarSm/SideBarSm";
+import SideBarRight from "../../RightSideBar/SideBarRight";
+import MainFeedSection from "./MainFeedSection";
 import { useState, useEffect } from "react";
-import { fetchInfo, me, url } from "./index";
+import { fetchInfo, me, url } from "../../../index";
 import "./styles.css"
 // import { useParams } from "react-router-dom";
 

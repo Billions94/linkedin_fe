@@ -2,8 +2,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import "../../styles.css";
-import { url } from "../../index";
+import "./styles.css";
+import { url } from "../../../index";
 
 const POSTPic = ({ fetchFeed, pic, setPic, id }) => {
   const [image, setImage] = useState(null);

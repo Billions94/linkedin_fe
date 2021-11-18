@@ -85,16 +85,14 @@ class NavBar extends Component {
                 )}
               </div>
             </>
-            <div
-              className="collapse navbar-collapse home-margin"
-              id="navbarSupportedContent"
-            >
+            <div className="collapse navbar-collapse home-margin"
+              id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
-                <div>
+              <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <Link to={"/home"}>
                       <img
-                        className="darknavicon pt-3 ml-2"
+                        className="ml-2"
                         src="https://img.icons8.com/material-rounded/50/000000/home.png"
                         width="22px"
                       />
@@ -108,10 +106,10 @@ class NavBar extends Component {
                     </Link>
                   </li>
                 </div>
-                <div>
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <img
-                      className="darknavicon pt-3 ml-2"
+                      className="ml-2"
                       src="https://img.icons8.com/fluency-systems-filled/50/000000/myspace.png"
                       width="22px"
                     />
@@ -120,10 +118,10 @@ class NavBar extends Component {
                     </a>
                   </li>
                 </div>
-                <div>
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <img
-                      className="darknavicon pt-3 ml-2"
+                      className="ml-2"
                       src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-bag-airport-kiranshastry-solid-kiranshastry.png"
                       width="22px"
                     />
@@ -132,10 +130,10 @@ class NavBar extends Component {
                     </a>
                   </li>
                 </div>
-                <div>
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <img
-                      className="darknavicon pt-3 ml-2"
+                      className="ml-2"
                       src="https://img.icons8.com/ios-glyphs/30/000000/sms.png"
                       width="22px"
                     />
@@ -144,10 +142,10 @@ class NavBar extends Component {
                     </a>
                   </li>
                 </div>
-                <div>
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <img
-                      className="darknavicon pt-3 ml-2"
+                      className=" ml-2"
                       src="https://img.icons8.com/glyph-neue/30/000000/appointment-reminders.png"
                       width="22px"
                     />
@@ -156,10 +154,10 @@ class NavBar extends Component {
                     </a>
                   </li>
                 </div>
-                <div className="xx  ">
-                  <div className="d-flex darknavicon mb-1 nav-work">
+                <div className="xx   ">
+                  <div className="d-flex pt-2 darknavicon nav-work">
                     <div id="link">
-                      <Dropdown className="customDropdown">
+                      <Dropdown className="">
                         <Dropdown.Toggle
                           className="customDropdown"
                           variant="success"
@@ -178,8 +176,19 @@ class NavBar extends Component {
                           </div>
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu style={{width: '250px'}} className='customDropdownMenu'>
-                          <Dropdown.Item href="#/action-1">
+                        <Dropdown.Menu className='customDropdownMenu'>
+                          <div className='parentDiv d-flex mb-0'>
+                            <Link to={"/profile/me"} >
+                            <div>
+                              <img src={this.props.currentUser.image} alt='' width='55px' className='roundpic' />
+                            </div>
+                            </Link>
+                            <div className='vPfont ml-2'>
+                              <h4 className='vPfont'>{this.props.currentUser.name} {this.props.currentUser.surname}</h4>
+                              <h6 className='vPfont2 d-block mt-0'>{this.props.currentUser.job}</h6>
+                            </div>
+                          </div>
+                          <div className='d-flex vPbDiv justify-content-center' href="#/action-1">
                             <Link
                               to={"/profile/me"}
                               className="d-block text-decoration-none pb-2"
@@ -189,29 +198,42 @@ class NavBar extends Component {
                                 lineSpace: "20px",
                               }}
                             >
-                              <button type='button' className='btn btn-white mt-2 visibleToAllBtn'>
-                                <span className='ml-2 text-muted'>View Profile</span>
+                              <button type='button' className='btn btn-white mt-2 viewProfile'>
+                                <span id='viewProf' className='ml-2 d-block'>View Profile</span>
                             </button>
                             </Link>
+                          </div>
                             <Dropdown.Divider />
-                          </Dropdown.Item>
-                          <a href="#/action-2">
-                            Another action
-                          </a>
-                          <Dropdown.Item href="#/action-3">
-                            Something else
-                          </Dropdown.Item>
-                          <Dropdown.Divider />
-                          <Dropdown.Item href="#/action-2">
-                            Another action
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            Something else
-                          </Dropdown.Item>
-                          <Dropdown.Divider />
-                          <Dropdown.Item href="#/action-3">
-                            Something else
-                          </Dropdown.Item>
+                            <div className='dropDownMenuAcc'>
+                              <h6 className='manageFont' href="#/action-2">
+                                Account
+                              </h6>
+                              <a href="#/action-3" className='text-muted d-block manageFontA'>
+                                Settings & Privacy
+                              </a>
+                              <a href="#/action-2" className='text-muted d-block manageFontA'>
+                                Help
+                              </a>
+                              <a href="#/action-3" className='text-muted d-block manageFontA'>
+                                Language
+                              </a>
+                            </div>
+                              <Dropdown.Divider />
+                              <div className='dropDownMenuAcc'>
+                              <h6 className='manageFont' href="#/action-2">
+                                Manage
+                              </h6>
+                              <a className='text-muted d-block manageFontA' href="#/action-3">
+                                Posts & Activity
+                              </a>
+                              <a className='text-muted d-block manageFontA' href="#/action-2">
+                                Job Posting Account
+                              </a>
+                            </div>
+                            <Dropdown.Divider />
+                              <div href="#/action-3" className='dropDownMenuAcc'>
+                                <a href='#' className='text-muted d-block manageFontA'>Sign Out</a>
+                              </div>
                         </Dropdown.Menu>
                       </Dropdown>
 
@@ -219,10 +241,10 @@ class NavBar extends Component {
 
                   </div>
                 </div>
-                <div className="ml-2 pt-2 ">
+                <div className="darknavicon pt-4 ml-2">
                   <li className="nav-item active navbar-li">
                     <img
-                      className="darknavicon mt-2 ml-2"
+                      className="ml-2"
                       src="https://img.icons8.com/material-sharp/60/000000/activity-grid-2.png"
                       width="22px"
                     />
@@ -243,7 +265,7 @@ class NavBar extends Component {
                     </a>
                   </li>
                 </div>
-                <div className="pt-3">
+                <div className="darknavicon pt-4 ml-2">
                   <a className="link-color navbar-li" href="#">
                     <span className="try-prem d-block mb-0">
                       Try premium for <br className="mt-0" /> free

@@ -2,11 +2,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import { token } from "./index";
+import { url } from "../../../Lib/index";
 
-const POSTPic = ({ expId, userId, picExp, setPicExp }) => {
+const POSTpic = ({ expId, userName, picExp, setPicExp, fetchExp }) => {
   const [imageExp, setImageExp] = useState(null);
-
+  console.log("EXPIMAGE ID : ", expId);
   const target = (e) => {
     console.log(e.target.files[0]);
     if (e.target && e.target.files[0]) {
@@ -18,38 +18,29 @@ const POSTPic = ({ expId, userId, picExp, setPicExp }) => {
     e.preventDefault();
     try {
       let formData = new FormData();
-      formData.append("experience", imageExp);
+      formData.append("image", imageExp);
 
       const response = await fetch(
-        `http://localhost:3001/${userId}/experiences/${expId}/upload`,
-
+        url + `/users/${userName}/experiences/${expId}/upload`,
         {
-          method: "POST",
+          method: "PUT",
           body: formData,
-          headers: {
-            Authorization: token,
-          },
         }
       );
       if (response.ok) {
         console.log(response);
-        
-
-
-      
+        fetchExp();
         setPicExp(false);
       } else {
         console.log();
 
         console.log(`wow... that wasn't supposed to happen... Error`);
-        alert(`Woops we lost your data in the void .. try refreshing`);
+        //alert(`Woops we lost your data in the void .. try refreshing`);
       }
     } catch (error) {
       console.error(error);
     }
   };
-
-
 
   return (
     <>
@@ -95,4 +86,4 @@ const POSTPic = ({ expId, userId, picExp, setPicExp }) => {
   );
 };
 
-export default POSTPic;
+export default POSTpic;

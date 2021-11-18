@@ -3,7 +3,7 @@ import PutExExp from "./PutExExp";
 import { Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Modal from "./AddExperience";
-import { postTimer } from "../../../Lib/index.js";
+import { postTimer, url } from "../../../Lib/index.js";
 
 const DisplayExp = ({ user, token, me }) => {
   console.log(user);
@@ -15,11 +15,14 @@ const DisplayExp = ({ user, token, me }) => {
 
   const fetchExp = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${user._id}/experiences`);
-      const exp = await response.json();
-      const newExp = exp.users.experiences
+      const response = await fetch(url + `/users/${user.userName}/experiences`);
 
+      const exp = await response.json();
+      console.log("================> ", exp);
+      const newExp = exp.exp;
       setData(newExp);
+      // console.log("================", newExp);
+      // console.log(data);
     } catch (e) {
       console.log(e);
     }
@@ -29,12 +32,14 @@ const DisplayExp = ({ user, token, me }) => {
     fetchExp();
   }, [user]);
 
-  console.log();
+  //fetchExp();
+
+  console.log("======>> ", data);
   return (
     <>
       {user._id === me && (
         <Modal
-          user={user._id}
+          user={user.userName}
           fetchExp={fetchExp}
           lgShow={lgShow}
           setLgShow={setLgShow}
@@ -46,8 +51,8 @@ const DisplayExp = ({ user, token, me }) => {
         <>
           {user._id === me && (
             <ExpPicModal
-              expId={exp._id}
-              userId={user._id}
+              expId={expId}
+              userName={exp.userName}
               picExp={picExp}
               setPicExp={setPicExp}
               fetchExp={fetchExp}
@@ -74,11 +79,11 @@ const DisplayExp = ({ user, token, me }) => {
                   onClick={() => {
                     PutExExp(
                       exp._id,
-                      exp.user,
-                      lgShow,
-                      setLgShow,
+                      exp.userName,
                       expId,
-                      setExpId
+                      setExpId,
+                      lgShow,
+                      setLgShow
                     );
                   }}
                   className="profile-button pencil-button"
@@ -88,14 +93,14 @@ const DisplayExp = ({ user, token, me }) => {
                 <button
                   onClick={() => {
                     setPicExp(true);
-                    // ExpPicModal(
-                    //   exp._id,
-                    //   exp.user,
-                    //   picExp,
-                    //   setPicExp
-                    // expId,
-                    // setExpId
-                    // );
+                    PutExExp(
+                      exp._id,
+                      exp.userName,
+                      expId,
+                      setExpId,
+                      null, // lgShow,
+                      null // setLgShow
+                    );
                   }}
                   className="profile-button pencil-button"
                 >

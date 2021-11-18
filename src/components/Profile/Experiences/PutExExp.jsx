@@ -1,13 +1,19 @@
 import { fetchSinglUserExp } from "./index";
 
-const PutExExp = async (id, user, lgShow, setLgShow, expId, setExpId) => {
-  const url = `http://localhost:3001/${user}/experiences/${id}`;
-  console.log(id, user);
+const PutExExp = async (id, userName, expId, setExpId, lgShow, setLgShow) => {
+  const url =
+    process.env.REACT_APP_URL + `/users/${userName}/experiences/${id}`;
+
+  console.log(id, userName);
+  //console.log("HERE ARE THE FUCKIN STATES: ", lgShow, setLgShow);
+
   try {
     let exp = await fetchSinglUserExp(url);
     console.log(exp);
 
-    setLgShow(true);
+    if (lgShow === false) {
+      setLgShow(true);
+    }
     setExpId(exp._id);
   } catch (error) {
     console.error(error);

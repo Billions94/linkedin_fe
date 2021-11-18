@@ -4,11 +4,9 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import POSTModal from "./POSTModal";
 import POSTPic from "./POSTPic";
-import "./styles.css"
+import "./styles.css";
 
-
-
-const StartAPost = ({ smShow, setSmShow, fetchFeed, token, user}) => {
+const StartAPost = ({ smShow, setSmShow, fetchFeed, token, user }) => {
 
   const [pic, setPic] = useState(false);
 
@@ -32,6 +30,8 @@ const StartAPost = ({ smShow, setSmShow, fetchFeed, token, user}) => {
             setSmShow={setSmShow}
             fetchFeed={fetchFeed}
             token={token}
+            user={user}
+
           />
           <Button
             onClick={() => {

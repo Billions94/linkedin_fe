@@ -2,10 +2,11 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import "./styles.css"
-import { url } from "../../../index"
+import "./styles.css";
+import { url } from "../../../index";
 
-const POSTPic = ({ fetchFeed, pic, setPic, id, token }) => {
+const POSTPic = ({ fetchFeed, pic, setPic, id }) => {
+
   const [image, setImage] = useState(null);
 
   const target = (e) => {
@@ -14,21 +15,25 @@ const POSTPic = ({ fetchFeed, pic, setPic, id, token }) => {
       setImage(e.target.files[0]);
     }
   };
-console.log(`this is the id`,id)
+
+  console.log(`this is the id for IMAGE UPDATE:`, id);
+
   const submitImage = async (e) => {
     e.preventDefault();
     try {
       let formData = new FormData();
       formData.append("image", image);
 
+
       const response = await fetch(url + `/posts/${id}/upload`,
+
 
         {
           method: "POST",
           body: formData,
-          headers: {
-            Authorization: token,
-          },
+
+          headers: {},
+
         }
       );
       if (response.ok) {
@@ -47,9 +52,11 @@ console.log(`this is the id`,id)
     }
   };
 
+
   useEffect(() => {
     
   }, []);
+
 
   return (
     <>

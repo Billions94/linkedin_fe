@@ -2,37 +2,40 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import { url, currentUser } from "../../../index"
-import "./styles.css"
+import { url, currentUser } from "../../../index";
+import "./styles.css";
 
-const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
-  console.log('i am the fetch feed',fetchFeed )
+const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
+  console.log("i am the fetch feed", fetchFeed);
 
   const [text, setText] = useState({ text: "" });
-  const [image, setImage] = useState([])
+  const [image, setImage] = useState([]);
+
 
   const newPost = async (e) => {
     e.preventDefault(e);
     try {
-      const response = await fetch(url + `/posts/` + currentUser,
-        {
-          method: "POST",
-          body: JSON.stringify(text),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+
+      const response = await fetch(url + `/posts/` + user.userName, {
+        method: "POST",
+        body: JSON.stringify(text),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (response.ok) {
         let post = await response.json();
-        console.log(`this is the post`,post);
+        console.log(`this is the post`, post);
+
 
         try {
           let formData = new FormData();
           formData.append("image", image);
+
         
           const response = await fetch(url + `/posts/${post._id}/upload`,
         
+
             {
               method: "POST",
               body: formData,
@@ -41,14 +44,15 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
               },
             }
           );
-         
+
+
           if (response.ok) {
             console.log(response);
-        
+
             fetchFeed();
             setImage(false);
-            setText({text: ''})
-            fetchFeed()
+            setText({ text: "" });
+            fetchFeed();
             setSmShow(false);
 
           } else {
@@ -70,7 +74,6 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
   }, [text]);
 
 
-  
   return (
     <>
       <Modal
@@ -101,10 +104,12 @@ const POSTModal = ({ smShow, setSmShow, fetchFeed, token }) => {
               />
             </Form.Group>
             <div className="d-flex justify-content-end">
+
             <Form.Group className="mb-3" controlId="#1">
               <Form.Control type="file" onChange={(e)=> setImage(e.target.files[0])} />
               </Form.Group>
                 
+
               <Button
                 variant="primary"
                 type="submit"

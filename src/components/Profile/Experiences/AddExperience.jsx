@@ -141,7 +141,7 @@ const ModalPop = ({ user, fetchExp, lgShow, setLgShow, expId, setExpId }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            add / update experience
+            {expId ? <p>Update Experience</p> : <p>Add New Experience</p>}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-0" style={{ width: "710px" }}>

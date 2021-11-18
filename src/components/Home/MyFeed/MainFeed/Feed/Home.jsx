@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUser = async (id) => {
-      const data = await fetchInfo(url + `/users/${me}`);
+      const data = await fetchInfo(url + `/users/` + me);
       console.log({ data });
       setUser(data);
     };

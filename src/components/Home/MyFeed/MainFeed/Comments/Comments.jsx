@@ -1,7 +1,7 @@
 import "./styles.css";
 import { Dropdown, Accordion, Image, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { url } from "../../../index";
+import { url, me } from "../../../index";
 import { postTimer } from "../../../../../Lib";
 
 const Comments = ({ postID, user }) => {
@@ -150,7 +150,9 @@ const Comments = ({ postID, user }) => {
                     className="text-muted  mb-2"
                   >
                      <div className='t postTime'>{postTimer(c.createdAt)}</div>
-                     <div className=" d-flex">
+
+                  { c.user !== me ? null :       
+                    <div className=" d-flex">
                    
                     <Dropdown className="dropdowntext ">
                       <Dropdown.Toggle
@@ -232,7 +234,7 @@ const Comments = ({ postID, user }) => {
                         </div>
                       </Dropdown.Menu>
                     </Dropdown>
-                  </div>
+                  </div>}
       
                   </div>
                   <div

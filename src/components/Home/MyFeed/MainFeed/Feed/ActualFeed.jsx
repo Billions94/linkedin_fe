@@ -71,7 +71,7 @@ const ActualFeed = ({
                           >
                             <br />
 
-                            <a href="#" className="text-dark">
+                            
                               <div className="d-flex experiment">
                                 <div
                                   style={{ cursor: "pointer" }}
@@ -97,9 +97,9 @@ const ActualFeed = ({
                                   edit
                                 </div>
                               </div>
-                            </a>
+                           
 
-                            <a href="#" className="text-dark">
+                           
                               <div className="d-flex">
                                 <div
                                   style={{ cursor: "pointer" }}
@@ -125,9 +125,9 @@ const ActualFeed = ({
                                   upload Pic
                                 </div>
                               </div>
-                            </a>
+                            
 
-                            <a href="#" className="text-dark">
+                           
                               <div className="d-flex">
                                 <div
                                   style={{ cursor: "pointer" }}
@@ -152,7 +152,7 @@ const ActualFeed = ({
                                   delete
                                 </div>
                               </div>
-                            </a>
+                       
                           </Dropdown.Menu>
                         </Dropdown>
                       </div>

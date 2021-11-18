@@ -198,7 +198,7 @@ const Comments = ({ postID, user }) => {
                         </Dropdown>
                        </div>
                         
-                        <a href='#' className='text-dark' >
+                    
                         <div className="d-flex">
                           <div style={{ cursor: "pointer" }} className="mr-0">
                             <img
@@ -214,8 +214,8 @@ const Comments = ({ postID, user }) => {
                           >
                             delete
                           </div>
+                      
                         </div>
-                        </a>
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>

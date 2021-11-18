@@ -2,7 +2,24 @@ import { useState, useEffect } from "react";
 import { url, me } from "../../../index";
 import "./styles.css";
 
-const Likes = ({ postID }) => {
+const Likes = ({ defaultLikes, onChange, postID }) => {
+
+    const [likes, setLikes] = useState(defaultLikes)
+    const likePost = likes.includes(me)
+
+    const multiTask = () => {
+          addLike()
+        if(likePost){
+            setLikes(likes.filter(id => id !== me))
+        } else{
+            setLikes([...likes, me])
+        }
+        onChange&&onChange(likes)
+    }
+
+    useEffect(() => {
+        onChange&&onChange(likes);
+      },[likePost])
 
     const user = {
         userId: me
@@ -28,9 +45,9 @@ const Likes = ({ postID }) => {
   return (
     <>
       <b>
-        <button onClick={(e) => addLike()} className="btn btn-primary actuall-feed-h5">
+        <button onClick={(e) => multiTask()} className="btn btn-primary actuall-feed-h5">
           <i className="bi text-muted bi-hand-thumbs-up"></i>&nbsp;{" "}
-          <span className="text-muted">Like</span>
+          <span className="text-muted">Like{`${likes.length -1}`}</span>
         </button>{" "}
       </b>
     </>

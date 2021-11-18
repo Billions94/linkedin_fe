@@ -14,7 +14,7 @@ import { me } from "./index"
 import Activity from "./Activity";
 import "./styles.css";
 
-const MyProfile = ({ setCurrentUser }) => {
+const MyProfile = ({ currentUser, setCurrentUser }) => {
   const params = useParams();
   // let pathname = props.location.pathname;
   // console.log(pathname);

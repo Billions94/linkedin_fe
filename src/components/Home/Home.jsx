@@ -35,7 +35,7 @@ const Home = () => {
           to €120k{" "}
         </a>
         <span className="ml-2">
-          Ad <span className="ad-span">...</span>
+          Ad <b>...</b>
         </span>
       </div>
       <Container className="mt-3">

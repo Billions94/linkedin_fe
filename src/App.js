@@ -10,7 +10,7 @@ import {useState, useEffect} from "react"
 function App() {
 
     const [currentUser, setCurrentUser] = useState({})
-   
+    
 
     useEffect(() => {
       console.log(`i am the currentUser`,currentUser)

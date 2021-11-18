@@ -2,34 +2,30 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
-import { url } from "../../index"
-import "../../styles.css"
+import { url } from "../../index";
+import "../../styles.css";
 
-
-
-const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id }) => {
+const PUTModal = ({ smShowPUT, setSmShowPUT, fetchFeed, putPost }) => {
   const [text, setText] = useState({ text: "" });
-  
-  console.log('i am the id', id)
+
+  console.log("i am the id", putPost);
 
   const updatePost = async (e) => {
     e.preventDefault(e);
     try {
-      const response = await fetch(url + `/posts/${id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(text),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(url + `/posts/${putPost}`, {
+        method: "PUT",
+        body: JSON.stringify(text),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (response.ok) {
         console.log(response);
         console.log("Update successfully");
         fetchFeed();
         setText({ text: "" });
-        setSmShow(false);
+        setSmShowPUT(false);
       } else {
         console.log(text);
 
@@ -49,8 +45,8 @@ const PUTModal = ({ fetchFeed, reversedFeed, smShow, setSmShow, id }) => {
   return (
     <>
       <Modal
-        show={smShow}
-        onHide={() => setSmShow(false)}
+        show={smShowPUT}
+        onHide={() => setSmShowPUT(false)}
         aria-labelledby="example-modal-sizes-title-sm"
       >
         <Modal.Header closeButton>

@@ -254,8 +254,8 @@ const Comments = ({ postID, user }) => {
                   </div>
                 </div>
               </div>
-            
-              {c.replies.map(r => (<Replies replyID={r} user={user} postID={postID} commentID={c._id} fetchComments={fetchComments}/>))}
+              
+              {<Replies user={user} postID={postID} commentID={c._id} fetchComments={fetchComments}/>}
             </>
           ))}
         </div>

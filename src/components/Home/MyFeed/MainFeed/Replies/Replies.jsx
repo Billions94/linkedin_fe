@@ -49,7 +49,7 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
         console.log("replied successfully");
         getReplies();
         setReplies({
-          text: "",
+          text: ""
         });
       }
     } catch (error) {
@@ -57,9 +57,9 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
     }
   };
 
-  const deleteReplies = async () => {
+  const deleteReplies = async (reply) => {
       try {
-          const response = await fetch(`${url}/posts/${commentID}/replies/${replyID}`, {
+          const response = await fetch(`${url}/posts/${commentID}/replies/${reply}`, {
             method: "DELETE",
           })
 
@@ -141,7 +141,7 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
                     <div style={{ fontSize: "16px" }} className="mb-2 ml-5">
                       <p className="text-left commentText">{reply.text}</p>
                     </div>
-                    <button className='replyDel btn btn-warning' onClick={(e) => deleteReplies(e)}>
+                    <button className='replyDel btn btn-warning' onClick={(e) => deleteReplies(reply._id)}>
                     <img className='replyDelImg' src="https://img.icons8.com/ios-filled/50/000000/waste.png" width='12px'/>
                     </button>
                   </div>

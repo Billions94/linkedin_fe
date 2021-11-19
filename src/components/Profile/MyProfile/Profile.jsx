@@ -9,18 +9,18 @@ import EditSettingsRightBar from "./SettingsRightBar";
 import { useParams } from "react-router-dom";
 import ProfileDashboard from "./ProfileDashboard";
 import SecondPYMK from "../Pymk/SecondPYMK";
-import { me, url } from "./index";
+import { me, url } from "./index"
 
 import Activity from "./Activity";
 import "./styles.css";
 
-const MyProfile = ({ currentUser, setCurrentUser }) => {
+const MyProfile = ({  setCurrentUser }) => {
+
   const params = useParams();
-  // let pathname = props.location.pathname;
-  // console.log(pathname);
   const [user, setUser] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const CSVhref = `${url}/users/${user.userName}/experiences/CSV `;
+
 
   let { id } = useParams();
   if (id === "me") {
@@ -29,8 +29,10 @@ const MyProfile = ({ currentUser, setCurrentUser }) => {
   console.log(id);
   useEffect(() => {
     const fetchUser = async (id) => {
-      const url = `http://localhost:3001/users/${id}`;
-      const data = await fetchInfo(url);
+
+      const myUrl = `${url}/users/${me}`;
+      const data = await fetchInfo(myUrl);
+
       console.log(`this are the users`, { data });
       setUser(data);
       setCurrentUser(data);
@@ -47,7 +49,7 @@ const MyProfile = ({ currentUser, setCurrentUser }) => {
         >
           <a className="text-primary">Frontend Entwickle</a>
           🚨 7000 Unternehmen suchen auf talent.io neue Mitarbeiter·innen. €60k
-          to €120k{" "}
+          to €120k {" "}
         </a>
         <span className="ml-2">
           Ad <span className="ad-span">...</span>

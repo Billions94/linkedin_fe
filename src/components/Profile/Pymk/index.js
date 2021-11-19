@@ -4,6 +4,7 @@ export const token = REACT_APP_TOKEN;
 export const me = REACT_APP_ME;
 export const url = REACT_APP_URL;
 
+
 // FETCH USER PROFILES
 export const fetchInfo = async (url) => {
     try {

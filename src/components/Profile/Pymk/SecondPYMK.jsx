@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
-import { fetchInfo } from "./index";
-import { url } from "../../../Lib";
+
+import { useState, useEffect } from "react"; 
+import { fetchInfo, url } from "./index";
 import { Link } from "react-router-dom";
 import { Accordion, Card, Button } from "react-bootstrap";
 import "./styles.css";
 
 const SecondPYMK = () => {
   const [data, setData] = useState([]);
-
   const [toggled, setToggled] = useState(false);
   const myUrl = url + `/users`;
 
@@ -23,7 +22,9 @@ const SecondPYMK = () => {
 
   console.log(`hey it's me`, data);
 
-  const secondSlicedData = data.slice(6, 7);
+  const secondSlicedData = data.slice(0,5)
+  
+
 
   return (
     <>

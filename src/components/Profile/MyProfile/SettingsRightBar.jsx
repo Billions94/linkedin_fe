@@ -4,8 +4,8 @@ import "./styles.css"
 const EditSettingsRightBar = () => {
     const popover = (
         <Popover className="tooltip-user-profile" placement="bottom" id="popover-basic">
-          <Popover.Content >
-          See and edit how you look to people who are not signed in, and find you through search engines (ex: Google, Bing).
+          <Popover.Content>
+          <p>See and edit how you look to people who are not signed in, and find you through search engines (ex: Google, Bing).</p>
           </Popover.Content>
         </Popover>
     )

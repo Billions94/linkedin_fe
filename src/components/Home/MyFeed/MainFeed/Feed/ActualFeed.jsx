@@ -201,7 +201,7 @@ const ActualFeed = ({
               <Row>
                 <Col className="px-0 actuall-feed-interact">
 
-                    <Likes defaultLikes={['1']} likes={elem._id} onChange={console.log} postID={elem._id} />
+                    <Likes reversedFeed={reversedFeed} fetchFeed={fetchFeed} defaultLikes={['1']} likes={elem._id} onChange={console.log} postID={elem._id} />
 
                 </Col>
                 <Col className="px-0 actuall-feed-interact">

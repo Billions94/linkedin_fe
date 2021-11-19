@@ -7,6 +7,7 @@ import MyFooter from "./components/Footer/MyFooter";
 import Home from "./components/Home/MyFeed/MainFeed/Feed/Home";
 import {useState, useEffect} from "react"
 
+
 function App() {
 
     const [currentUser, setCurrentUser] = useState({})
@@ -21,7 +22,7 @@ function App() {
     <Router>
       <NavBar currentUser={currentUser} />
       <Route path="/home"  exact render={(props) => <Home {...props} currentUser={currentUser} />} />
-      <Route path="/profile/:id" exact render={(props) => <MyProfile {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+      <Route path="/profile/:id" exact render={(props) => <MyProfile {...props}  setCurrentUser={setCurrentUser} />} />
       <MyFooter />
     </Router>
     </div>

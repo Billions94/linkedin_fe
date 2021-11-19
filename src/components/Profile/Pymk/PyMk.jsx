@@ -53,7 +53,7 @@ const PyMk = ({ refresh, setRefresh }) => {
               </Link>
               <div className="mb-2  pymkdiv">
                 <button class="btn btn-primary pymkbtn text-muted ">
-                  <span className="pymkbtnspan">Message</span>
+                  <span className="pymkbtnspan">Add friend</span>
                 </button>
               </div>
             </div>

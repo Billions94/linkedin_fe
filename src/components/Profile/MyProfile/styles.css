@@ -299,11 +299,7 @@
 }
 
 /*------------------------------PROFILE HEADER CSS------------------------------*/
-.jumbobtn-open-to {
-  border: 1px solid rgb(33, 93, 172);
-  background-color: rgb(33, 93, 172);
-  border-radius: 20px;
-}
+
 
 .nameHeader {
   font-weight: 600;
@@ -324,9 +320,22 @@
   border-radius: 20px;
 }
 
+.jumbobtn-open-to {
+  border: 1px solid rgb(9, 102, 194);
+  background-color: rgb(9, 102, 194);
+  border-radius: 20px;
+}
+
 .jumbobtn-open-to:hover {
-  outline: 2px solid grey;
-  background-color: #004182;
+  background-color: #004182 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.jumbobtn-open-to:focus {
+  background-color: #004182 !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .jumbobtn:hover {

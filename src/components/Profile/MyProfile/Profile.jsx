@@ -118,7 +118,7 @@ const MyProfile = ({ currentUser, setCurrentUser }) => {
                     <div className="position-relative">
                       <DisplayExp user={user} me={me} />
                       <hr />
-                      <a className="btn btn-success" href={CSVhref}>
+                      <a className="btn btn-success jumbobtn-open-to" href={CSVhref}>
                         Download as CSV
                       </a>
                     </div>

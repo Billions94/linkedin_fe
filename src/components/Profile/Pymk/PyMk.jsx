@@ -2,20 +2,17 @@ import { useState, useEffect } from "react";
 import { fetchInfo, url, me } from "./index";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import { url } from "../../../Lib";
 
 const PyMk = ({ refresh, setRefresh }) => {
   const [data, setData] = useState([]);
 
-
   const myUrl = `${url}/users`;
-
 
   const fetchData = async () => {
     const data = await fetchInfo(myUrl);
     const newData = data.users;
     setData(newData);
-    console.log('i am the new data in users ', newData);
+    console.log("i am the new data in users ", newData);
   };
   useEffect(() => {
     fetchData();
@@ -25,11 +22,11 @@ const PyMk = ({ refresh, setRefresh }) => {
 
   const slicedData = data.slice(0, 6);
 
-   const newUser = data.map(user => user._id)
-   console.log('dopeboy', newUser)
+  const newUser = data.map((user) => user._id);
+  console.log("dopeboy", newUser);
 
   const user = {
-    friendId: "61938acda61b1b4f0f90e754"
+    friendId: "61938acda61b1b4f0f90e754",
   };
 
   const addFriend = async () => {
@@ -41,10 +38,10 @@ const PyMk = ({ refresh, setRefresh }) => {
           "Content-Type": "application/json",
         },
       });
-          if(response.ok){
-            console.log('new friend added')
-            fetchData()
-          }
+      if (response.ok) {
+        console.log("new friend added");
+        fetchData();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +76,10 @@ const PyMk = ({ refresh, setRefresh }) => {
                 </a>
               </Link>
               <div className="mb-2  pymkdiv">
-                <button onClick={(e) => addFriend(e)} class="btn btn-primary pymkbtn text-muted ">
+                <button
+                  onClick={(e) => addFriend(e)}
+                  class="btn btn-primary pymkbtn text-muted "
+                >
                   <span className="pymkbtnspan">Connect</span>
                 </button>
               </div>

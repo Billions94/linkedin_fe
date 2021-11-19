@@ -12,6 +12,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
 
   const [image, setImage] = useState(null);
   const [show, setShow] = useState(false);
+  const [data, setData] = useState(null);
 
   const target = (e) => {
     console.log(e.target.files[0]);
@@ -26,6 +27,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
       if (response.ok) {
         const data = await response.json();
         console.log("i am the header data ", data);
+        setData(data)
       }
     } catch (error) {
       console.log(error);
@@ -71,7 +73,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
     <>
       <Jumbotron
         fluid
-        className="rounded-lg bg-white p-0"
+        className="rounded-lg bg-white p-0 jumbotronPadding"
         id="jumbotron-banner">
         <Row>
           <img
@@ -131,6 +133,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
             <p className="mb-0">{user.bio}</p>
             <br />
             <p>
+              {!user.friends ? null : <h6 className='text-primary'>{`${user.friends.length}`} connection</h6>}
               <Button variant="primary" className="jumbobtn-open-to">
                 Open to
               </Button>

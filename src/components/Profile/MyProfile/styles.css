@@ -240,6 +240,10 @@
   background-size: 100% 37%;
 }
 
+.jumbotronPadding {
+  padding-left: 15px !important;
+}
+
 #skills {
   background-color: white;
   border-radius: 10px;

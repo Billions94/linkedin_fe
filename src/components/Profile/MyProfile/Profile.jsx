@@ -9,18 +9,16 @@ import EditSettingsRightBar from "./SettingsRightBar";
 import { useParams } from "react-router-dom";
 import ProfileDashboard from "./ProfileDashboard";
 import SecondPYMK from "../Pymk/SecondPYMK";
-import { me, url } from "./index"
+import { me, url } from "./index";
 
 import Activity from "./Activity";
 import "./styles.css";
 
-const MyProfile = ({  setCurrentUser }) => {
-
+const MyProfile = ({ setCurrentUser }) => {
   const params = useParams();
   const [user, setUser] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const CSVhref = `${url}/users/${user.userName}/experiences/CSV `;
-
 
   let { id } = useParams();
   if (id === "me") {
@@ -29,8 +27,7 @@ const MyProfile = ({  setCurrentUser }) => {
   console.log(id);
   useEffect(() => {
     const fetchUser = async (id) => {
-
-      const myUrl = `${url}/users/${me}`;
+      const myUrl = `${url}/users/${id}`;
       const data = await fetchInfo(myUrl);
 
       console.log(`this are the users`, { data });
@@ -49,7 +46,7 @@ const MyProfile = ({  setCurrentUser }) => {
         >
           <a className="text-primary">Frontend Entwickle</a>
           🚨 7000 Unternehmen suchen auf talent.io neue Mitarbeiter·innen. €60k
-          to €120k {" "}
+          to €120k{" "}
         </a>
         <span className="ml-2">
           Ad <span className="ad-span">...</span>
@@ -120,7 +117,10 @@ const MyProfile = ({  setCurrentUser }) => {
                     <div className="position-relative">
                       <DisplayExp user={user} me={me} />
                       <hr />
-                      <a className="btn btn-success jumbobtn-open-to" href={CSVhref}>
+                      <a
+                        className="btn btn-success jumbobtn-open-to"
+                        href={CSVhref}
+                      >
                         Download as CSV
                       </a>
                     </div>

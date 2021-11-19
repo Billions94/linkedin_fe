@@ -1,60 +1,20 @@
 import { Button, Modal, Form, Container } from "react-bootstrap";
-import { SetState, useEffect, useState } from "react";
-import { fetchInfo } from "./index";
+import { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { me } from "./index";
+import { me, url } from "./index";
 import "./styles.css";
 
-const ProfileSettings = ({ user, setRefresh, refresh }) => {
+const ProfileSettings = ({ user, setRefresh, refresh, pic, setPic }) => {
   const [lgShow, setLgShow] = useState(false);
   const [name, setName] = useState("");
   const [settings, setSettings] = useState(user);
-  const [pic, setPic] = useState(false);
-
-  const [image, setImage] = useState(null);
-
-  const target = (e) => {
-    console.log(e.target.files[0]);
-    if (e.target && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
-
-  const submitImage = async (e) => {
-    e.preventDefault();
-    try {
-      let formData = new FormData();
-      formData.append("image", image);
-
-      const response = await fetch(
-        `http://localhost:3001/users/${user._id}/upload`,
-        {
-          method: "PUT",
-          body: formData,
-        }
-      );
-      if (response.ok) {
-        console.log(response);
-
-        setPic(false);
-        setLgShow(false);
-        setRefresh(!refresh);
-      } else {
-        console.log();
-
-        console.log(`wow... that wasn't supposed to happen... Error`);
-        alert(`Woops we lost your data in the void .. try refreshing`);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+ 
 
   const updateUserSettings = async (e) => {
     e.preventDefault(e);
     try {
-      const response = await fetch(`http://localhost:3001/users/${me}`, {
+      const response = await fetch(`${url}/users/${me}`, {
         method: "PUT",
         body: JSON.stringify(settings),
         headers: {

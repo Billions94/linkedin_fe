@@ -314,40 +314,54 @@
   margin-left: 120px;
 }
 
-.jumbobtn {
-  background-color: transparent;
-  border: 1px solid grey;
-  border-radius: 20px;
-}
 
 .jumbobtn-open-to {
-  border: 1px solid rgb(9, 102, 194);
-  background-color: rgb(9, 102, 194);
+  background-color: rgb(9, 102, 194) !important;
   border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 .jumbobtn-open-to:hover {
   background-color: #004182 !important;
-  border: none !important;
-  box-shadow: none !important;
+  outline: none !important;
 }
 
 .jumbobtn-open-to:focus {
   background-color: #004182 !important;
   border: none !important;
   box-shadow: none !important;
+  outline: none !important;
+}
+
+.jumbobtn-open-to:active {
+  background-color: #004182 !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.jumbobtn {
+  background-color: transparent;
+  border: 1px solid grey;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 .jumbobtn:hover {
-  outline: 2px solid grey;
+  outline: 1px solid grey !important;
   background-color: rgb(221, 218, 218);
 }
 
 .jumbobtn:focus,
 .pymkbtn:focus {
   background-color: transparent !important;
-  outline: none !important;
-  border: none !important;
+  outline: 2px solid violet !important;
+  border: 2px solid grey !important;
+
 }
 
 .jumbo-a {
@@ -441,3 +455,5 @@
     background-color: rgb(231, 230, 230) !important;
     border-radius: 30px;
 }
+
+

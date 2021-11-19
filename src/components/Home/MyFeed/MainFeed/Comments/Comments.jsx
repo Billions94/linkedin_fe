@@ -3,6 +3,7 @@ import { Dropdown, Accordion, Image, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { url, me } from "../../../index";
 import { postTimer } from "../../../../../Lib";
+import Replies from "../Replies/Replies";
 
 const Comments = ({ postID, user }) => {
 
@@ -109,7 +110,8 @@ const Comments = ({ postID, user }) => {
       <div className="commentArea d-flex mb-2">
         <img src={user.image} alt="" width="35px" className="roundpic" />
         <textarea
-          className="form-control shareComment"
+          className="form-control  shareComment"
+          style={{border: " 3px solid rgb(179, 177, 177)"}}
           type="textarea"
           rows={2}
           value={comments.text}
@@ -133,7 +135,7 @@ const Comments = ({ postID, user }) => {
         <div className='mb-2'>
           {data.map((c) => (
             <>
-              <div className="d-flex col-12">
+              <div className="d-flex col-12 mb-2">
                 <div>
                   <Image
                     className=" d-block g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15"
@@ -252,6 +254,8 @@ const Comments = ({ postID, user }) => {
                   </div>
                 </div>
               </div>
+            
+              {c.replies.map(r => (<Replies replyID={r} user={user} postID={postID} commentID={c._id} fetchComments={fetchComments}/>))}
             </>
           ))}
         </div>

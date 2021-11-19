@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import MyJumbotron from "./ProfileHeader";
 import DisplayExp from "../Experiences/DisplayExp";
 import Skills from "./Skills";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { fetchInfo } from "./index";
 import PyMk from "../Pymk/PyMk";
 import EditSettingsRightBar from "./SettingsRightBar";
@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import ProfileDashboard from "./ProfileDashboard";
 import SecondPYMK from "../Pymk/SecondPYMK";
 import { me, url } from "./index"
+
 import Activity from "./Activity";
 import "./styles.css";
 
@@ -20,19 +21,24 @@ const MyProfile = ({  setCurrentUser }) => {
   const [refresh, setRefresh] = useState(false);
   const CSVhref = `${url}/users/${user.userName}/experiences/CSV `;
 
-  
-  
 
+  let { id } = useParams();
+  if (id === "me") {
+    id = me;
+  }
+  console.log(id);
   useEffect(() => {
     const fetchUser = async (id) => {
+
       const myUrl = `${url}/users/${me}`;
       const data = await fetchInfo(myUrl);
+
       console.log(`this are the users`, { data });
       setUser(data);
       setCurrentUser(data);
     };
-    fetchUser(params.id);
-  }, [params.id, refresh]);
+    fetchUser(id);
+  }, [id, refresh]);
 
   return (
     <>
@@ -112,13 +118,11 @@ const MyProfile = ({  setCurrentUser }) => {
                       <h4>Experience</h4>
                     </div>
                     <div className="position-relative">
-
                       <DisplayExp user={user} me={me} />
                       <hr />
                       <a className="btn btn-success jumbobtn-open-to" href={CSVhref}>
                         Download as CSV
                       </a>
-
                     </div>
                   </div>
                 </Col>

@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { fetchInfo, url, me } from "./index";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { url } from "../../../Lib";
 
 const PyMk = ({ refresh, setRefresh }) => {
   const [data, setData] = useState([]);
-  const myUrl = url + `/users`;
+
+
+  const myUrl = `${url}/users`;
+
 
   const fetchData = async () => {
     const data = await fetchInfo(myUrl);

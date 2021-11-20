@@ -189,6 +189,16 @@
   border-top-left-radius: 10px;
 }
 
+.customDropdownMenu1 {
+  background-color: rgb(230, 230, 230);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 10px;
+  margin-top: -10px;
+  margin-left: -350px;
+}
+
 .customDropdownMenuItem {
   background-color: rgb(43, 42, 42) !important;
 }

@@ -48,9 +48,9 @@ const Likes = ({ reversedFeed, fetchFeed, defaultLikes, onChange, postID }) => {
       <b>
         <button onClick={(e) => multiTask()} 
         color={`${likePost}` ? 'primary' : 'transparent'} 
-        className="btn btn-primary actuall-feed-h5">
-          <i className="bi text-muted bi-hand-thumbs-up"></i>&nbsp;{" "}
-          {<span className="text-muted">Like{`${likes.length}`}</span>}
+        className="btn btn-danger actuall-feed-h5">
+          <img src="https://img.icons8.com/color/50/000000/filled-like.png" width='28px'/>
+          {<span className="text-muted">Like {`${likes.length}`}</span>}
         </button>{" "}
       </b>
     </>

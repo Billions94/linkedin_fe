@@ -67,7 +67,7 @@ class NavBar extends Component {
                         });
                       }}
                     >
-                      profile
+                   
                     </div>
                     <div
                       onClick={(e) => {
@@ -83,21 +83,10 @@ class NavBar extends Component {
                           className="customDropdown"
                           variant="success"
                           id="dropdown-basic">
-                          
-                            {this.props.currentUser === me}
-                            <Avatar
-                              src={this.props.currentUser.image}
-                              className="d-block avatar"
-                              alt=""
-                              sx={{ width: 24, height: 24 }}
-                            />
-                          <div className='d-flex'>
-                              <span className='text-dark navMe'> Me </span> 
-                              <img src="https://img.icons8.com/ios-filled/50/000000/sort-down.png" width='15px'/>
-                          </div>
+
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu className='customDropdownMenu'>
+                        <div className='customDropdownMenu1'>
                           <div className='parentDiv d-flex mb-0'>
                             <Link to={"/profile/me"} >
                             <div>
@@ -109,53 +98,8 @@ class NavBar extends Component {
                               <h6 className='vPfont2 d-block mt-0'>{this.props.currentUser.job}</h6>
                             </div>
                           </div>
-                          <div className='d-flex vPbDiv justify-content-center' href="#/action-1">
-                            <Link
-                              to={"/profile/me"}
-                              className="d-block text-decoration-none pb-2"
-                              style={{
-                                fontWeight: "400",
-                                fontSize: "12px",
-                                lineSpace: "20px",
-                              }}
-                            >
-                              <button type='button' className='btn btn-white mt-2 viewProfile'>
-                                <span id='viewProf' className='ml-2 d-block'>View Profile</span>
-                            </button>
-                            </Link>
-                          </div>
-                            <Dropdown.Divider />
-                            <div className='dropDownMenuAcc'>
-                              <h6 className='manageFont' href="#/action-2">
-                                Account
-                              </h6>
-                              <a href="#/action-3" className='text-muted d-block manageFontA'>
-                                Settings & Privacy
-                              </a>
-                              <a href="#/action-2" className='text-muted d-block manageFontA'>
-                                Help
-                              </a>
-                              <a href="#/action-3" className='text-muted d-block manageFontA'>
-                                Language
-                              </a>
-                            </div>
-                              <Dropdown.Divider />
-                              <div className='dropDownMenuAcc'>
-                              <h6 className='manageFont' href="#/action-2">
-                                Manage
-                              </h6>
-                              <a className='text-muted d-block manageFontA' href="#/action-3">
-                                Posts & Activity
-                              </a>
-                              <a className='text-muted d-block manageFontA' href="#/action-2">
-                                Job Posting Account
-                              </a>
-                            </div>
-                            <Dropdown.Divider />
-                              <div href="#/action-3" className='dropDownMenuAcc'>
-                                <a href='#' className='text-muted d-block manageFontA'>Sign Out</a>
-                              </div>
-                        </Dropdown.Menu>
+                   
+                        </div>
                       </Dropdown>
 
                     </div>
@@ -299,7 +243,7 @@ class NavBar extends Component {
                             >
                               <button
                                 type="button"
-                                className="btn btn-white mt-2 viewProfile"
+                                className="btn btn-white mt-4 viewProfile"
                               >
                                 <span id="viewProf" className="ml-2 d-block">
                                   View Profile

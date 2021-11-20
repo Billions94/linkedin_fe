@@ -51,7 +51,7 @@ const ActualFeed = ({
                       <div className=" d-flex">
                         <Dropdown className="dropdowntext actuallFeedD mr-5 ">
                           <Dropdown.Toggle
-                            style={{ marginLeft: "400px", marginTop: "-24px" }}
+                            style={{ marginLeft: "508px", marginTop: "-24px" }}
                             className="btn btn-dark reply remove"
                           >
                             <img

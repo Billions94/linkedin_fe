@@ -43,12 +43,11 @@ const ActualFeed = ({
             <div className="section-container pt-2 pb-0 mb-2 list-group list-group-flush">
               <div className=" d-flex justify-content-between list-pad1 ">
 
-                <h6 style={{ fontSize: "12px" }}>
-                  Posted {postTimer(elem.updatedAt)} ago
-                </h6>
+             
                 <Col className="text-right">
                   {elem.user._id == me && (
                     <>
+                    {/* <p>{elem.user.name} likes this post</p> */}
                       <div className=" d-flex">
                         <Dropdown className="dropdowntext actuallFeedD mr-5 ">
                           <Dropdown.Toggle
@@ -187,6 +186,10 @@ const ActualFeed = ({
                   style={{fontSize: "12px", fontWeight: "500"}} >
                     {elem.user.job}</span>
 
+                  <h6 className="text-left text-muted" style={{ fontSize: "12px" }}>
+                     {postTimer(elem.updatedAt)}   •
+                   <img className="text-left text-muted mb-1" src="https://img.icons8.com/glyph-neue/50/000000/europe.png" width='14px'/>
+                </h6>
                 </div>
               </div>
 

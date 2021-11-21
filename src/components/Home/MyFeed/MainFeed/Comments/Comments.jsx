@@ -113,7 +113,7 @@ const Comments = ({ postID, user }) => {
           className="form-control  shareComment"
           style={{border: " 3px solid rgb(179, 177, 177)"}}
           type="textarea"
-          rows={2}
+          rows={7}
           value={comments.text}
           onChange={(e) => setComments({...comments,
             text: e.target.value,

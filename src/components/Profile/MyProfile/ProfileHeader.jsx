@@ -20,6 +20,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
       setImage(e.target.files[0]);
     }
   };
+  
 
   const fetchUsers = async () => {
     try {
@@ -134,6 +135,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
             <br />
             <p>
               {!user.friends ? null : <h6 className='text-primary'>{`${user.friends.length}`} connection</h6>}
+              
               <Button variant="primary" className="jumbobtn-open-to">
                 Open to
               </Button>

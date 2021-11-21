@@ -20,9 +20,6 @@ const Comments = ({ postID, user }) => {
   })
 
 
-  console.log(comments.userName)
-  console.log(comments.user)
-
   const [data, setData] = useState(null);
 
   // For Retriving Users 

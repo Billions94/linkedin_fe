@@ -68,7 +68,7 @@ const MyJumbotron = ({ identification, user, setRefresh, refresh }) => {
     }
   };
 
-  const PDFhref = url + `/users/${user._id}/CV`;
+  const PDFhref = `${url}/users/${user._id}/CV`;
 
   return (
     <>

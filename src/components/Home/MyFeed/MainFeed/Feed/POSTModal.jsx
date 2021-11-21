@@ -6,7 +6,6 @@ import { url, currentUser } from "../../../index";
 import "./styles.css";
 
 const POSTModal = ({ smShow, setSmShow, fetchFeed, token, user }) => {
-  console.log("i am the fetch feed", fetchFeed);
 
   const [text, setText] = useState({ text: "" });
   const [image, setImage] = useState([]);

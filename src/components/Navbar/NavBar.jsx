@@ -14,6 +14,7 @@ class NavBar extends Component {
       fetchType: "",
     },
   };
+  
   currentUser = this.props.currentUser;
 
   render() {

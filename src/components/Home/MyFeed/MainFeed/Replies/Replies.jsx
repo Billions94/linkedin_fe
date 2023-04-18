@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import propsPass from "./propsPass";
 
 const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
-    console.log('iam am the reply ID', replyID)
+  console.log("iam am the reply ID", replyID);
   const [replies, setReplies] = useState({
     text: "",
     userName: user.userName,
@@ -58,20 +58,22 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
   };
 
   const deleteReplies = async () => {
-      try {
-          const response = await fetch(`${url}/posts/${commentID}/replies/${replyID}`, {
-            method: "DELETE",
-          })
+    try {
+      const response = await fetch(
+        `${url}/posts/${commentID}/replies/${replyID}`,
+        {
+          method: "DELETE",
+        }
+      );
 
-          if(response.ok){
-              getReplies()
-              console.log("deleted successfully");
-          }
-
-      } catch (error) {
-        console.log(error);
+      if (response.ok) {
+        getReplies();
+        console.log("deleted successfully");
       }
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -141,8 +143,15 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
                     <div style={{ fontSize: "16px" }} className="mb-2 ml-5">
                       <p className="text-left commentText">{reply.text}</p>
                     </div>
-                    <button className='replyDel btn btn-warning' onClick={(e) => deleteReplies(e)}>
-                    <img className='replyDelImg' src="https://img.icons8.com/ios-filled/50/000000/waste.png" width='12px'/>
+                    <button
+                      className="replyDel btn btn-warning"
+                      onClick={(e) => deleteReplies(e)}
+                    >
+                      <img
+                        className="replyDelImg"
+                        src="https://img.icons8.com/ios-filled/50/000000/waste.png"
+                        width="12px"
+                      />
                     </button>
                   </div>
                 </div>
@@ -156,3 +165,6 @@ const Replies = ({ replyID, user, postID, commentID, fetchComments }) => {
 };
 
 export default Replies;
+
+//{"$or": [{"$and": [{"founded_month": 10 },{"$or": [{"category_code": "social"}, {"category_code": "web"}]}]},[{"$and": [{"founded_year": 2004 },{"$or": [{"category_code": "social"}, {"category_code": "web"}]}]}]]} eine [] zu viel
+//{ $or :[{ $and:[{ "founded_year":2004} ,{ $or :  [ {"category_code":"social"} , {"category_code":"web"} ]}]},{$and:[{ "founded_month":10},{ $or: [ {"category_code":"social"} , {"category_code":"web"} ] }]}]}
